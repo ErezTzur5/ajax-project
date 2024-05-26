@@ -66,7 +66,7 @@ const displayBookImages = (books) => {
         deleteButton.classList.add('delete-button');
         deleteButton.addEventListener('click', (event) => {
             event.stopPropagation(); // Prevent the modal from opening when clicking delete
-            deleteBook(book.id);
+            deleteBook(book.id); // need to work on this
             console.log(book.id);
         });
 
@@ -78,30 +78,6 @@ const displayBookImages = (books) => {
     });
 };
 
-function deleteBook(bookId) {
-    // Confirm deletion
-    const confirmation = confirm('Are you sure you want to delete this book?');
-    if (!confirmation) return;
-  
-    // Send DELETE request to backend
-    axios
-      .delete(`${baseURL}/books?id=${bookId}`)
-      .then((response) => {
-        console.log(`Book with ID ${bookId} has been deleted.`);
-  
-        // Optionally, you can remove the deleted book from your local data as well
-        // Remove the deleted book from the books array
-        const index = books.findIndex((book) => book.id === bookId);
-        if (index !== -1) {
-          books.splice(index, 1);
-          // After deleting the book, you may want to refresh the UI to reflect the changes
-          displayBookImages(books);
-        } else {
-          console.error(`Book with ID ${bookId} not found in local data.`);
-        }
-      })
-      .catch((err) => console.error(`Error deleting book with ID ${bookId}:`, err));
-  }
 
 // Event listener for closing the modal
 closeModal.addEventListener('click', () => {
