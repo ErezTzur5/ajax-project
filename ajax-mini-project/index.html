@@ -38,6 +38,23 @@
     </section>
     <section class="section-3" id="section-3">
       <div id="booksContainer" class="books-container"></div>
+      <div id="bookModal" class="modal">
+        <div class="modal-content">
+          <span id="closeModal" class="close">&times;</span>
+          <h2 id="modalTitle"></h2>
+          <img id="modalImage" class="modalImage" src="" alt="" />
+          <p id="modalDescription"></p>
+          <p id="modalAuthor"></p>
+          <p id="modalPageNum"></p>
+          <p id="modalCopysNum"></p>
+          <p id="modalCategory"></p>
+          <p id="modalISBN"></p>
+          <div>
+            <button id="updateBook" onclick="updateBook()">Edit</button>
+            <button id="deleteBook" onclick="deleteBook()">Delete</button>
+          </div>
+        </div>
+      </div>
       <button onclick="prevHandler()">Previous</button>
       <button onclick="nextHandler()">Next</button>
     </section>
