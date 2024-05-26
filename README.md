@@ -1,2 +1,2 @@
 # ajax-project
-ajax project from erez tzur and yonatan bokris
+ajax project from erez tzur and yonatan bukris
