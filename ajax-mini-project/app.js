@@ -1,68 +1,63 @@
-const axios = require('axios');
-const fs = require('fs');
+const baseURL = 'http://localhost:8001';
+let pageNum = 1; // Start with page 1
 
-// Your Google Books API key
-const API_KEY = 'YOUR_GOOGLE_BOOKS_API_KEY';
+const booksContainer = document.querySelector('#booksContainer');
 
-// Function to fetch book data from Google Books API
-async function fetchBooks(query, maxResults = 5) {
-    const url = `https://www.googleapis.com/books/v1/volumes?q=${query}&maxResults=${maxResults}&key=${API_KEY}`;
-    try {
-        const response = await axios.get(url);
-        return response.data;
-    } catch (error) {
-        console.error(`Error fetching data from Google Books API: ${error}`);
-        return null;
-    }
-}
+const displayBookImages = (books) => {
+    // Clear existing content
+    booksContainer.innerHTML = '';
 
-// Function to format book data
-function formatBookData(book) {
-    const volumeInfo = book.volumeInfo || {};
-    const imageLinks = volumeInfo.imageLinks || {};
-
-    const formattedBook = {
-        id: book.id || '',
-        'book name': volumeInfo.title || '',
-        'authors name': volumeInfo.authors || [],
-        'num pages': volumeInfo.pageCount || 0,
-        'short description': volumeInfo.description || '',
-        image: imageLinks.thumbnail || '',
-        'num copies': 1,  // Assuming 1 copy initially
-        categories: volumeInfo.categories || [],
-        ISBN: null
-    };
-
-    // Extract ISBN
-    const identifiers = volumeInfo.industryIdentifiers || [];
-    for (const identifier of identifiers) {
-        if (identifier.type === 'ISBN_10' || identifier.type === 'ISBN_13') {
-            formattedBook.ISBN = identifier.identifier;
-            break;
+    // Create a new row div for every 4 books
+    let rowDiv;
+    books.forEach((book, index) => {
+        // Start a new row after every 4 books
+        if (index % 4 === 0) {
+            rowDiv = document.createElement('div');
+            rowDiv.classList.add('row');
+            booksContainer.appendChild(rowDiv);
         }
-    }
 
-    return formattedBook;
-}
+        // Create book card div
+        const bookDiv = document.createElement('div');
+        bookDiv.classList.add('book-card');
 
-// Main function to fetch, format, and save book data
-async function main(query, maxResults = 5, outputFile = 'db.json') {
-    const booksData = await fetchBooks(query, maxResults);
-    if (!booksData || !booksData.items) {
-        console.error('No book data found.');
-        return;
-    }
+        // Create image element
+        const img = document.createElement('img');
+        img.src = book.image;
+        img.alt = book.book_name;
 
-    const formattedBooks = booksData.items.map(formatBookData);
+        // Append image to book card div
+        bookDiv.appendChild(img);
 
-    fs.writeFile(outputFile, JSON.stringify(formattedBooks, null, 4), (err) => {
-        if (err) {
-            console.error(`Error writing to file: ${err}`);
-        } else {
-            console.log(`Data successfully written to ${outputFile}`);
-        }
+        // Append book card div to current row
+        rowDiv.appendChild(bookDiv);
     });
+};
+
+function fetchBooks(pageNum) {
+  let url = `${baseURL}/books?_page=${pageNum}&_per_page=12`;
+  axios
+    .get(url)
+    .then((response) => {
+      const books = response.data;
+      console.log(books.data);
+      console.log(pageNum);
+      displayBookImages(books.data); // Call displayBookImages function to display the books
+    })
+    .catch((err) => console.error(err));
 }
 
-// Replace 'harry potter' with your desired query and adjust maxResults as needed
-main('harry potter', 10);
+function nextHandler() {
+  pageNum++; // Increment the page number
+  fetchBooks(pageNum);
+}
+
+function prevHandler() {
+  if (pageNum > 1) {
+    pageNum--; // Decrement the page number
+    fetchBooks(pageNum);
+  }
+}
+
+// Call the function to display book images when the page loads
+window.onload = () => fetchBooks(pageNum);

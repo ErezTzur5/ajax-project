@@ -3,7 +3,43 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="./index.css" />
     <title>Bookris</title>
   </head>
-  <body></body>
+  <body>
+    <section class="section-1" id="section-1">
+      <div class="navbar">
+        <a href="">
+          <img class="logo" src="logo.png" alt="Logo" />
+        </a>
+        <h2 class="">Bookris</h2>
+        <a href="">
+          <img class="history" src="history.png" alt="Logo-history" />
+        </a>
+      </div>
+    </section>
+    <section class="section-2" id="section-2">
+      <div>
+        <form class="search-book" id="search-book">
+          <div>
+            <label for="searchBookName"></label>
+            <input
+              type="text"
+              id="createBookName"
+              placeholder="Search For book"
+              required
+            />
+          </div>
+          <button class="search-logo" type="submit">Search</button>
+        </form>
+      </div>
+    </section>
+    <section class="section-3" id="section-3">
+      <div id="booksContainer" class="books-container"></div>
+      <button onclick="prevHandler()">Previous</button>
+      <button onclick="nextHandler()">Next</button>
+    </section>
+    <script src="https://unpkg.com/axios@0.21.1/dist/axios.min.js"></script>
+    <script src="app.js"></script>
+  </body>
 </html>
