@@ -1,5 +1,8 @@
 const baseURL = 'http://localhost:8001';
 let pageNum = 1; // Start with page 1
+let bookPerPage = 12;
+let booksNumInPage;
+
 
 const booksContainer = document.querySelector('#booksContainer');
 
@@ -34,22 +37,26 @@ const displayBookImages = (books) => {
     });
 };
 
-function fetchBooks(pageNum) {
-  let url = `${baseURL}/books?_page=${pageNum}&_per_page=12`;
+function fetchBooks() {
+  let url = `${baseURL}/books?_page=${pageNum}&_per_page=${bookPerPage}`;
   axios
     .get(url)
     .then((response) => {
       const books = response.data;
-      console.log(books.data);
-      console.log(pageNum);
+      booksNumInPage = books.data.length;
       displayBookImages(books.data); // Call displayBookImages function to display the books
     })
     .catch((err) => console.error(err));
 }
 
 function nextHandler() {
-  pageNum++; // Increment the page number
-  fetchBooks(pageNum);
+    if (bookPerPage === booksNumInPage) {
+        pageNum++; // Increment the page number
+        fetchBooks(pageNum); 
+    }
+    else {
+        console.log("not enough books");
+    }
 }
 
 function prevHandler() {
@@ -57,6 +64,29 @@ function prevHandler() {
     pageNum--; // Decrement the page number
     fetchBooks(pageNum);
   }
+}
+
+function search(event) {
+    event.preventDefault(); // Prevents the default form submission behavior
+    var searchInput = document.getElementById('searchBookName').value.toLowerCase();    
+    console.log(searchInput);
+
+    axios.get(`${baseURL}/books`)
+        .then((response) => {
+            const allBooks = response.data;
+            console.log('ALL', allBooks);
+            
+            // Filter books based on search input
+            filteredBooks = allBooks.filter(book => book.book_name.toLowerCase().includes(searchInput));
+            console.log('Filtered Books:', filteredBooks);
+            
+            // Reset the page number to 1
+            pageNum = 1;
+
+            // Display the first page of the filtered books
+            displayBookImages(filteredBooks);
+        })
+        .catch((err) => console.error(err));
 }
 
 // Call the function to display book images when the page loads
