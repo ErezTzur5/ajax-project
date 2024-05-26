@@ -1,64 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" type="text/css" href="./index.css" />
-    <title>Bookris</title>
-  </head>
-  <body>
-    <section class="section-1" id="section-1">
-      <div class="navbar">
-        <a href="">
-          <img class="logo" src="logo.png" alt="Logo" />
-        </a>
-        <h2 class="">Bookris</h2>
-        <a href="">
-          <img class="history" src="history.png" alt="Logo-history" />
-        </a>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" type="text/css" href="./index.css" />
+  <title>Bookris</title>
+</head>
+
+<body>
+  <section class="section-1" id="section-1">
+    <div class="navbar">
+      <a href="">
+        <img class="logo" src="logo.png" alt="Logo" />
+      </a>
+      <h2 class="">Bookris</h2>
+      <a href="">
+        <img class="history" src="history.png" alt="Logo-history" />
+      </a>
+    </div>
+  </section>
+  <section class="section-2" id="section-2">
+    <div>
+      <form class="search-book" id="search-book">
+        <div>
+          <label for="searchBookName"></label>
+          <input type="text" id="searchBookName" placeholder="Search For book" required />
+        </div>
+        <button onclick="search(event)" class="search-logo" type="submit">
+          Search
+        </button>
+      </form>
+    </div>
+  </section>
+  <section class="section-3" id="section-3">
+    <div id="booksContainer" class="books-container"></div>
+    <div id="bookModal" class="modal">
+      <div class="modal-content">
+        <span id="closeModal" class="close">&times;</span>
+        <h2 id="modalTitle"></h2>
+        <img id="modalImage" class="modalImage" src="" alt="" />
+        <p id="modalDescription"></p>
+        <p id="modalAuthor"></p>
+        <p id="modalPageNum"></p>
+        <p id="modalCopysNum"></p>
+        <p id="modalCategory"></p>
+        <p id="modalISBN"></p>
+        <div id="buttons"></div>
       </div>
-    </section>
-    <section class="section-2" id="section-2">
-      <div>
-        <form class="search-book" id="search-book">
-          <div>
-            <label for="searchBookName"></label>
-            <input
-              type="text"
-              id="searchBookName"
-              placeholder="Search For book"
-              required
-            />
-          </div>
-          <button onclick="search(event)" class="search-logo" type="submit">
-            Search
-          </button>
-        </form>
-      </div>
-    </section>
-    <section class="section-3" id="section-3">
-      <div id="booksContainer" class="books-container"></div>
-      <div id="bookModal" class="modal">
+      <div id="updateBookModal" class="update-modal">
         <div class="modal-content">
-          <span id="closeModal" class="close">&times;</span>
-          <h2 id="modalTitle"></h2>
-          <img id="modalImage" class="modalImage" src="" alt="" />
-          <p id="modalDescription"></p>
-          <p id="modalAuthor"></p>
-          <p id="modalPageNum"></p>
-          <p id="modalCopysNum"></p>
-          <p id="modalCategory"></p>
-          <p id="modalISBN"></p>
-          <div>
-            <button id="updateBook" onclick="updateBook()">Edit</button>
-            <button id="deleteBook" onclick="deleteBook()">Delete</button>
-          </div>
+          <span id="closeUpdateModal" class="close">&times;</span>
+          <h2>Update Book</h2>
+          <label for="updateBookName">Book Name:</label>
+          <input type="text" id="updateBookName" placeholder="Book Name" required /><br><br>
+          <label for="updateAuthorsName">Author's Name:</label>
+          <input type="text" id="updateAuthorsName" placeholder="Author's Name" required /><br><br>
+          <label for="updateNumPages">Number of Pages:</label>
+          <input type="number" id="updateNumPages" placeholder="Number of Pages" required /><br><br>
+          <label for="updateShortDescription">Short Description:</label>
+          <textarea id="updateShortDescription" placeholder="Short Description" required></textarea><br><br>
+          <label for="updateImage">Image URL:</label>
+          <input type="text" id="updateImage" placeholder="Image URL" required /><br><br>
+          <label for="updateNumCopies">Number of Copies:</label>
+          <input type="number" id="updateNumCopies" placeholder="Number of Copies" required /><br><br>
+          <label for="updateCategories">Categories:</label>
+          <input type="text" id="updateCategories" placeholder="Categories" required /><br><br>
+          <label for="updateISBN">ISBN:</label>
+          <input type="text" id="updateISBN" placeholder="ISBN" required /><br><br>
+          <button onclick="updateBook()" id="updateBookBtn">Update Book</button>
         </div>
       </div>
-      <button onclick="prevHandler()">Previous</button>
-      <button onclick="nextHandler()">Next</button>
-    </section>
-    <script src="https://unpkg.com/axios@0.21.1/dist/axios.min.js"></script>
-    <script src="app.js"></script>
-  </body>
+    </div>
+    <button onclick="prevHandler()">Previous</button>
+    <button onclick="nextHandler()">Next</button>
+  </section>
+  <script src="https://unpkg.com/axios@0.21.1/dist/axios.min.js"></script>
+  <script src="app.js"></script>
+</body>
+
 </html>

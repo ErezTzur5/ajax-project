@@ -2,11 +2,13 @@ body {
     margin: 0;
     font-family: Arial, sans-serif;
 }
-.search-book{
+
+.search-book {
     display: flex;
     align-items: center;
     justify-content: center;
 }
+
 .navbar {
     display: flex;
     background-color: #333;
@@ -14,6 +16,7 @@ body {
     justify-content: space-between;
     align-items: center;
 }
+
 .navbar a {
     float: left;
     display: block;
@@ -22,43 +25,45 @@ body {
     padding: 14px 20px;
     text-decoration: none;
 }
+
 .navbar a:hover {
     background-color: #ddd;
     color: black;
 }
 
-img.logo{
+img.logo {
     display: inline-block;
-    width: 5rem; 
-    height: 5rem; 
-    background-image: url('./img/2.jpeg'); 
-    background-size: contain; 
-    background-position: center; 
-    text-indent: -9999px; 
+    width: 5rem;
+    height: 5rem;
+    background-image: url('./img/2.jpeg');
+    background-size: contain;
+    background-position: center;
+    text-indent: -9999px;
     border: #333 1px solid;
     border-radius: 50%;
 }
 
-.history{
-    display: inline-block; 
+.history {
+    display: inline-block;
     width: 3rem;
-    height: 3rem; 
+    height: 3rem;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath fill='%23ffffff' d='M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z'%3E%3C/path%3E%3C/svg%3E");
-    background-size: contain; 
-    background-position: center;
-    text-indent: -9999px;
-}
-.search-logo{
-    display: inline-block; 
-    width: 3rem;
-    height: 3rem; 
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath d='M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z'/%3E%3C/svg%3E");
-    background-size: contain; 
+    background-size: contain;
     background-position: center;
     text-indent: -9999px;
 }
 
-.row{
+.search-logo {
+    display: inline-block;
+    width: 3rem;
+    height: 3rem;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath d='M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z'/%3E%3C/svg%3E");
+    background-size: contain;
+    background-position: center;
+    text-indent: -9999px;
+}
+
+.row {
     display: flex;
     gap: 2rem;
     align-items: center;
@@ -70,63 +75,67 @@ img.logo{
     flex-wrap: wrap;
     justify-content: space-between;
 }
- 
+
 .book-card {
-    width: calc(70% + 40px); /* Adjust width to match image width plus any padding or margin */
-    height: auto; /* Allow height to adjust based on content */
-    margin-bottom: 20px; /* Add margin bottom for spacing between rows */
+    width: calc(70% + 40px);
+    height: auto;
+    margin-bottom: 20px;
     border-radius: 8px;
     overflow: hidden;
-  }
+    margin-left: 6rem;
+
+}
 
 .book-card img {
-width: 70%;
-height: 70%;
-object-fit: cover; /* Make the image cover the container without distorting its aspect ratio */
-border-top-left-radius: 8px;
-border-top-right-radius: 8px;
+    width: 70%;
+    height: 70%;
+    object-fit: cover;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
 }
 
 .book-card .card-body {
-padding: 15px;
+    padding: 15px;
 }
 
 .book-card h3 {
-font-size: 18px;
-margin: 0;
+    font-size: 18px;
+    margin: 0;
 }
 
 .book-card p {
-font-size: 14px;
-margin-top: 8px;
+    font-size: 14px;
+    margin-top: 8px;
 }
 
-/* Example usage */
+
 .book-card {
-background-color: #fff; /* Set background color */
+    background-color: #fff;
+
 }
 
-/* Hover effect */
+
 .book-card:hover {
-transform: translateY(-5px); /* Move card up on hover */
-transition: transform 0.3s ease;
+    transform: translateY(-5px);
+
+    transition: transform 0.3s ease;
 }
 
-/* Modal styles */
+
 .modal {
     overflow: hidden;
     width: 100vw;
     height: 100vh;
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
+    display: none;
+    position: fixed;
+    z-index: 1;
     left: 0;
     top: 0;
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
 }
 
-.modalImage{
+.modalImage {
     height: 100%;
     width: 25vh;
 }
@@ -136,7 +145,8 @@ transition: transform 0.3s ease;
     margin: 5% auto;
     padding: 20px;
     border: 1px solid #888;
-    width: 20%; /* Could be more or less, depending on screen size */
+    width: 20%;
+
 }
 
 .close {
@@ -151,4 +161,18 @@ transition: transform 0.3s ease;
     color: black;
     text-decoration: none;
     cursor: pointer;
+}
+
+
+.update-modal {
+    overflow: hidden;
+    width: 100vw;
+    height: 100vh;
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
 }
