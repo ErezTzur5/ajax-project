@@ -2,7 +2,6 @@ const baseURL = 'http://localhost:8001';
 
 let pageNum = 1; // Start with page 1
 let bookPerPage = 12;
-
 let booksNumInPage;
 
 
@@ -163,6 +162,7 @@ closeCreateButton.addEventListener('click', () => {
 
 createButton.addEventListener('click', () => {
     createDiv.style.display = 'block';
+    createDiv.style.overflow = 'scroll';
     document.body.style.overflow = 'none';
     
 });
@@ -170,12 +170,14 @@ createButton.addEventListener('click', () => {
 function createBook() {
     // Get the values from the input fields
     const bookName = document.getElementById('createBookName').value;
-    const authorsName = [document.getElementById('createAuthorsName').value];
+    const authorsNameInput = document.getElementById('createAuthorsName').value;
+    const authorsName = authorsNameInput.split(',').map(author => author.trim()); // Split authors by comma and trim spaces
     const numPages = parseInt(document.getElementById('createNumPages').value);
     const shortDescription = document.getElementById('createShortDescription').value;
     const image = document.getElementById('createImage').value;
     const numCopies = parseInt(document.getElementById('createNumCopies').value);
-    const categories = [document.getElementById('createCategories').value];
+    const categoriesInput = document.getElementById('createCategories').value;
+    const categories = categoriesInput.split(',').map(category => category.trim()); // Split categories by comma and trim spaces
     const ISBN = document.getElementById('createISBN').value;
 
     // Check if any of the required fields are empty
@@ -209,17 +211,43 @@ function createBook() {
 }
 
 
-function fetchBooks() {
+
+function fetchBooks(pageNum,filteredBooks) {
+    showLoader();
+    
     let url = `${baseURL}/books?_page=${pageNum}&_per_page=${bookPerPage}`;
     axios
         .get(url)
-        .then((response) => {
-            const books = response.data;
-            booksNumInPage = books.data.length;
-            displayBookImages(books.data); // Call displayBookImages function to display the books
+        .then((response) => {  
+            if (filteredBooks) {
+                console.log("in if in fetch",filteredBooks);
+                
+                displayBookImages(filteredBooks)
+                hideLoader();
+            }
+            else{
+                console.log('else');
+                const books = response.data;
+                booksNumInPage = books.data.length;
+                displayBookImages(books.data);}
+                hideLoader();
+        
         })
-        .catch((err) => console.error(err));
+        .catch((err) => console.error(err),hideLoader());
+        
 }
+
+function showLoader() {
+    const loader = document.getElementById('loader');
+    loader.style.display = 'block';
+}
+
+// Hide loader function
+function hideLoader() {
+    const loader = document.getElementById('loader');
+    loader.style.display = 'none';
+}
+
 
 function nextHandler() {
     if (bookPerPage === booksNumInPage) {
@@ -240,59 +268,34 @@ function prevHandler() {
 
 
 
-function search(event) {
+
+async function search(event) {
     event.preventDefault(); 
     const searchInput = document.getElementById('searchBookName').value.toLowerCase();
-    console.log(searchInput);
-    const foundBooks = [];
-    let pageNum = 1; // Corrected variable name
-    const bookPerPage = 12; // Assuming you have a variable named bookPerPage defined somewhere
+    const newBooks = await filterBooks(searchInput);
+    fetchBooks(pageNum,newBooks);
+
+}
 
     
 
+async function filterBooks(searchInput) {
+    const url = `http://localhost:8001/books`;
 
-    function fetchBooks(pageNum) {
-        const url = `http://localhost:8001/books`;
-        return axios.get(url)
-            .then((response) => {
-                console.log(url);
-                console.log(`pageNum: ${pageNum}`);
-                const allBooks = response.data; // Adjust this line to extract book data
-                console.log('ALL', allBooks);
+    try {
+        const response = await axios.get(url);
+        console.log(url);
 
-                
+        const allBooks = response.data; // Adjust this line to extract book data
+        console.log('ALL', allBooks);
 
-                const filteredBooks = allBooks.filter(book => book.book_name.toLowerCase().includes(searchInput));
-                console.log('Filtered Books:', filteredBooks);
-
-                return filteredBooks;
-            })
-            .catch((err) => {
-                console.error('Fetch error:', err);
-                return [];
-            });
+        const filteredBooks = allBooks.filter(book => book.book_name.toLowerCase().includes(searchInput));
+        console.log('Filtered Books:', filteredBooks);
+        return filteredBooks;
+    } catch (err) {
+        console.error('Fetch error:', err);
+        return [];
     }
-
-    async function performSearch() {
-        while (foundBooks.length < 12) {
-            const books = await fetchBooks(pageNum);
-            if (books.length === 0) {
-                break; // No more books to fetch
-            }
-
-            // Add only up to the required number of books
-            books.forEach(book => {
-                if (foundBooks.length < 12) {
-                    foundBooks.push(book);
-                }
-            });
-
-            pageNum++; // Increment the page number after fetching and processing the current page
-        }
-        displayBookImages(foundBooks);
-    }
-
-    performSearch();
 }
 
 
@@ -326,15 +329,14 @@ function deleteBook(bookId) {
 function updateBook(bookId) {
     const url = `http://localhost:8001/books/${bookId}`;
 
-
     const updatedBook = {
         book_name: document.getElementById('updateBookName').value,
-        authors_name: [document.getElementById('updateAuthorsName').value],
+        authors_name: document.getElementById('updateAuthorsName').value.split(',').map(author => author.trim()), // Split authors by comma and trim spaces
         num_pages: parseInt(document.getElementById('updateNumPages').value),
         short_description: document.getElementById('updateShortDescription').value,
         image: document.getElementById('updateImage').value,
         num_copies: parseInt(document.getElementById('updateNumCopies').value),
-        categories: [document.getElementById('updateCategories').value],
+        categories: document.getElementById('updateCategories').value.split(',').map(category => category.trim()), // Split categories by comma and trim spaces
         ISBN: document.getElementById('updateISBN').value
     };
 
@@ -342,14 +344,14 @@ function updateBook(bookId) {
         .then(response => {
             console.log(`Book with ID ${bookId} updated successfully.`);
             console.log(response.data);
-            updateModal.style.display = 'none'
+            updateModal.style.display = 'none';
             window.location.reload();
-
         })
         .catch(error => {
             console.error(`There was an error updating the book with ID ${bookId}:`, error);
         });
 }
+
 
 
 // Call the function to display book images when the page loads
