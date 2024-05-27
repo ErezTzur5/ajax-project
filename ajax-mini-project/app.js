@@ -1,4 +1,5 @@
 const baseURL = 'http://localhost:8001';
+
 let pageNum = 1; // Start with page 1
 let bookPerPage = 12;
 let booksNumInPage;
@@ -23,6 +24,14 @@ const editButton = document.createElement('button');
 const updateModal = document.getElementById('updateBookModal');
 const closeUpdateModal = document.getElementById('closeUpdateModal');
 const updateButton = document.getElementById('updateBookBtn');
+// for creating books
+const createButton = document.getElementById('createBook');
+const createDiv = document.getElementById('modal-create-content');
+const closeCreateButton = document.getElementById('closecreateModal');
+
+// history
+const historyDiv = document.getElementById('history-container');
+
 
 
 const displayBookImages = (books) => {
@@ -74,6 +83,7 @@ const displayBookImages = (books) => {
             deleteButton.addEventListener('click', (event) => {
                 deleteBook(book.id);
             });
+        
             buttonsDiv.appendChild(deleteButton);
 
             //update
@@ -133,6 +143,55 @@ closeUpdateModal.addEventListener('click', () => {
 
 });
 
+closeCreateButton.addEventListener('click', () => {
+    createDiv.style.display = 'none';
+    document.body.style.overflow = 'auto'
+    document.getElementById('createBookName').value = "";
+    document.getElementById('createAuthorsName').value = "";
+    document.getElementById('createNumPages').value = "";
+    document.getElementById('createShortDescription').value = "";
+    document.getElementById('createImage').value = "";
+    document.getElementById('createNumCopies').value = "";
+    document.getElementById('createCategories').value = "";
+    document.getElementById('createISBN').value = "";
+});
+
+createButton.addEventListener('click', () => {
+    createDiv.style.display = 'block';
+    document.body.style.overflow = 'none';
+    
+});
+
+function createBook() {
+
+    const newBook = {
+        book_name: document.getElementById('createBookName').value,
+        authors_name: [document.getElementById('createAuthorsName').value],
+        num_pages: parseInt(document.getElementById('createNumPages').value),
+        short_description: document.getElementById('createShortDescription').value,
+        image: document.getElementById('createImage').value,
+        num_copies: parseInt(document.getElementById('createNumCopies').value),
+        categories: [document.getElementById('createCategories').value],
+        ISBN: document.getElementById('createISBN').value
+        
+    };
+    console.log(newBook);
+
+    axios.post(`${baseURL}/books`, newBook)
+    .then(response => {
+        console.log(`Book Name ${newBook.book_name} added successfully.`);
+        console.log(response.data);
+        // updateModal.style.display = 'none'
+
+        window.location.reload();
+
+    })
+    .catch(error => {
+        console.error(`There was an error updating the book with ID ${bookId}:`, error);
+    });
+}
+
+
 function fetchBooks() {
     let url = `${baseURL}/books?_page=${pageNum}&_per_page=${bookPerPage}`;
     axios
@@ -185,21 +244,28 @@ function search(event) {
         .catch((err) => console.error(err));
 }
 
+
 function deleteBook(bookId) {
     const url = `http://localhost:8001/books/${bookId}`;
+
+    axios.get(url)
+    .then(response => {
+        const bookName = response.data.book_name;
+        
+        const currentTime = new Date(); // Get the current time
+        updateHistory(bookName, 'DELETE', currentTime, bookId)
+    })
 
     axios.delete(url)
         .then(response => {
             console.log(`Book with ID ${bookId} deleted successfully.`);
             location.reload();
-
-
         })
         .catch(error => {
             console.error(`There was an error deleting the book with ID ${bookId}:`, error);
         });
-
 }
+
 
 function updateBook(bookId) {
     const url = `http://localhost:8001/books/${bookId}`;

@@ -61,6 +61,11 @@ img.logo {
     background-size: contain;
     background-position: center;
     text-indent: -9999px;
+    outline: none;
+    background-color: transparent;
+    cursor: pointer;
+    border: none;
+
 }
 
 .row {
@@ -175,4 +180,46 @@ img.logo {
     top: 0;
     background-color: rgb(0, 0, 0);
     background-color: rgba(0, 0, 0, 0.4);
+}
+
+
+.post-logo {
+    width: 3rem;
+    height: 3rem;
+    display: inline-block;
+    background-image: url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 448 512%22%3E%3C!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--%3E%3Cpath d=%22M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z%22/%3E%3C/svg%3E');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: none;
+    padding: 0;
+    margin: 0;
+    background-color: transparent;
+    cursor: pointer;
+    outline: none;
+    text-indent: -9999px;
+  }
+  
+  .post-logo:hover,
+  .post-logo:focus {
+    outline: none; /* Removes the default focus outline */
+  }
+
+
+.modal-create-content{
+    overflow: hidden;
+    width: 100vw;
+    height: 100vh;
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
+    background-color: #fefefe;
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 20%;
 }
