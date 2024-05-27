@@ -2,6 +2,7 @@ const baseURL = 'http://localhost:8001';
 
 let pageNum = 1; // Start with page 1
 let bookPerPage = 12;
+
 let booksNumInPage;
 
 
@@ -237,28 +238,66 @@ function prevHandler() {
     }
 }
 
+
+
 function search(event) {
-    event.preventDefault(); // Prevents the default form submission behavior
-    var searchInput = document.getElementById('searchBookName').value.toLowerCase();
+    event.preventDefault(); 
+    const searchInput = document.getElementById('searchBookName').value.toLowerCase();
     console.log(searchInput);
+    const foundBooks = [];
+    let pageNum = 1; // Corrected variable name
+    const bookPerPage = 12; // Assuming you have a variable named bookPerPage defined somewhere
 
-    axios.get(`${baseURL}/books`)
-        .then((response) => {
-            const allBooks = response.data;
-            console.log('ALL', allBooks);
+    
 
-            // Filter books based on search input
-            filteredBooks = allBooks.filter(book => book.book_name.toLowerCase().includes(searchInput));
-            console.log('Filtered Books:', filteredBooks);
 
-            // Reset the page number to 1
-            pageNum = 1;
+    function fetchBooks(pageNum) {
+        const url = `http://localhost:8001/books`;
+        return axios.get(url)
+            .then((response) => {
+                console.log(url);
+                console.log(`pageNum: ${pageNum}`);
+                const allBooks = response.data; // Adjust this line to extract book data
+                console.log('ALL', allBooks);
 
-            // Display the first page of the filtered books
-            displayBookImages(filteredBooks);
-        })
-        .catch((err) => console.error(err));
+                
+
+                const filteredBooks = allBooks.filter(book => book.book_name.toLowerCase().includes(searchInput));
+                console.log('Filtered Books:', filteredBooks);
+
+                return filteredBooks;
+            })
+            .catch((err) => {
+                console.error('Fetch error:', err);
+                return [];
+            });
+    }
+
+    async function performSearch() {
+        while (foundBooks.length < 12) {
+            const books = await fetchBooks(pageNum);
+            if (books.length === 0) {
+                break; // No more books to fetch
+            }
+
+            // Add only up to the required number of books
+            books.forEach(book => {
+                if (foundBooks.length < 12) {
+                    foundBooks.push(book);
+                }
+            });
+
+            pageNum++; // Increment the page number after fetching and processing the current page
+        }
+        displayBookImages(foundBooks);
+    }
+
+    performSearch();
 }
+
+
+
+
 
 
 function deleteBook(bookId) {
@@ -270,6 +309,7 @@ function deleteBook(bookId) {
         
         const currentTime = new Date(); // Get the current time
         updateHistory(bookName, 'DELETE', currentTime, bookId)
+        console.log(updateHistory(bookName, 'DELETE', currentTime, bookId)); // Call updateHistory with correct arguments
     })
 
     axios.delete(url)
