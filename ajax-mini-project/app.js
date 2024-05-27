@@ -236,39 +236,50 @@ function search(event) {
 
 
     function fetchBooks(pageNum) {
-        const url1 = `http://localhost:8001/books?_page=${pageNum}`
-        axios.get(url1)
-
-
+        const url = `http://localhost:8001/books`;
+        return axios.get(url)
             .then((response) => {
-                console.log(url1);
+                console.log(url);
                 console.log(`pageNum: ${pageNum}`);
-                const allBooks = response.data;
+                const allBooks = response.data; // Adjust this line to extract book data
                 console.log('ALL', allBooks);
 
-                // const filteredBooks = allBooks.filter(book => book.book_name.toLowerCase().includes(searchInput));
-                // console.log('Filtered Books:', filteredBooks);
+                
 
-                // filteredBooks.forEach(book => {
-                //     foundBooks.push(book);
-                // });
+                const filteredBooks = allBooks.filter(book => book.book_name.toLowerCase().includes(searchInput));
+                console.log('Filtered Books:', filteredBooks);
 
-                // if (foundBooks.length < bookPerPage && allBooks.length === bookPerPage) {
-                //     // If the number of found books is less than the desired per page and there are more books in the next page
-                //     pageNum++; // Move to the next page
-                //     console.log(pageNum);
-                //     fetchBooks(pageNum); // Fetch books from the next page
-                // } else {
-                //     displayBookImages(foundBooks);
-                //     pageNum = 1; // Reset page number for subsequent searches
-                // }
+                return filteredBooks;
             })
-            .catch((err) => console.error(err));
+            .catch((err) => {
+                console.error('Fetch error:', err);
+                return [];
+            });
     }
 
-    // Start fetching books
-    fetchBooks(pageNum);
+    async function performSearch() {
+        while (foundBooks.length < 12) {
+            const books = await fetchBooks(pageNum);
+            if (books.length === 0) {
+                break; // No more books to fetch
+            }
+
+            // Add only up to the required number of books
+            books.forEach(book => {
+                if (foundBooks.length < 12) {
+                    foundBooks.push(book);
+                }
+            });
+
+            pageNum++; // Increment the page number after fetching and processing the current page
+        }
+        displayBookImages(foundBooks);
+    }
+
+    performSearch();
 }
+
+
 
 
 
