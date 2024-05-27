@@ -34,7 +34,6 @@ const closeCreateButton = document.getElementById('closecreateModal');
 const historyDiv = document.getElementById('history-container');
 
 
-
 const displayBookImages = (books) => {
     // Clear existing content
     booksContainer.innerHTML = '';
@@ -57,6 +56,10 @@ const displayBookImages = (books) => {
         const img = document.createElement('img');
         img.src = book.image;
         img.alt = book.book_name;
+
+        // Set the width and height of the image
+        img.width = 131.59; // Adjust this value as needed
+        img.height = 199.25; // Adjust this value as needed
 
         // Append image to book card div
         bookDiv.appendChild(img);
@@ -114,6 +117,7 @@ const displayBookImages = (books) => {
     });
 };
 
+
 // event listener for closing the book popup and reset 
 closeModal.addEventListener('click', () => {
     // Hide the modal
@@ -164,32 +168,44 @@ createButton.addEventListener('click', () => {
 });
 
 function createBook() {
+    // Get the values from the input fields
+    const bookName = document.getElementById('createBookName').value;
+    const authorsName = [document.getElementById('createAuthorsName').value];
+    const numPages = parseInt(document.getElementById('createNumPages').value);
+    const shortDescription = document.getElementById('createShortDescription').value;
+    const image = document.getElementById('createImage').value;
+    const numCopies = parseInt(document.getElementById('createNumCopies').value);
+    const categories = [document.getElementById('createCategories').value];
+    const ISBN = document.getElementById('createISBN').value;
 
+    // Check if any of the required fields are empty
+    if (!bookName || !authorsName[0] || !numPages || !shortDescription || !image || !numCopies || !categories[0] || !ISBN) {
+        // If any field is empty, display a message
+        alert('Please fill in all the required fields.');
+        return; // Exit the function if any field is empty
+    }
+
+    // If all fields are filled, proceed with creating the book
     const newBook = {
-        book_name: document.getElementById('createBookName').value,
-        authors_name: [document.getElementById('createAuthorsName').value],
-        num_pages: parseInt(document.getElementById('createNumPages').value),
-        short_description: document.getElementById('createShortDescription').value,
-        image: document.getElementById('createImage').value,
-        num_copies: parseInt(document.getElementById('createNumCopies').value),
-        categories: [document.getElementById('createCategories').value],
-        ISBN: document.getElementById('createISBN').value
-        
+        book_name: bookName,
+        authors_name: authorsName,
+        num_pages: numPages,
+        short_description: shortDescription,
+        image: image,
+        num_copies: numCopies,
+        categories: categories,
+        ISBN: ISBN
     };
-    console.log(newBook);
 
     axios.post(`${baseURL}/books`, newBook)
-    .then(response => {
-        console.log(`Book Name ${newBook.book_name} added successfully.`);
-        console.log(response.data);
-        // updateModal.style.display = 'none'
-
-        window.location.reload();
-
-    })
-    .catch(error => {
-        console.error(`There was an error updating the book with ID ${bookId}:`, error);
-    });
+        .then(response => {
+            console.log(`Book '${newBook.book_name}' added successfully.`);
+            console.log(response.data);
+            window.location.reload(); // Reload the page after adding the book
+        })
+        .catch(error => {
+            console.error('Error adding the book:', error);
+        });
 }
 
 

@@ -1,47 +1,58 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
+    background-color: #d4d3d3;
 }
 
 .search-book {
     display: flex;
     align-items: center;
     justify-content: center;
+    margin: 1rem;
+    gap: 1rem;
+    flex-wrap: wrap;
 }
 
 .navbar {
     display: flex;
     background-color: #333;
     overflow: hidden;
-    justify-content: space-between;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
     align-items: center;
 }
 
 .navbar a {
-    float: left;
+    width: 100%;
+    height: 100%;
     display: block;
     color: white;
-    text-align: center;
+    /* text-align: center; */
+    text-align: none;
     padding: 14px 20px;
-    text-decoration: none;
 }
 
 .navbar a:hover {
-    background-color: #ddd;
+    background-color: #01010146;
     color: black;
 }
 
-img.logo {
+.navbar .logo {
     display: inline-block;
-    width: 5rem;
-    height: 5rem;
+    width: 4.5rem;
+    height: 4.5rem;
     background-image: url('./img/2.jpeg');
     background-size: contain;
     background-position: center;
     text-indent: -9999px;
     border: #333 1px solid;
     border-radius: 50%;
+    transition: filter 0.5s ease; /* Add transition for smooth effect */
 }
+
+
 
 .history {
     display: inline-block;
@@ -55,9 +66,9 @@ img.logo {
 
 .search-logo {
     display: inline-block;
-    width: 3rem;
-    height: 3rem;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath d='M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z'/%3E%3C/svg%3E");
+    width: 2rem;
+    height: 2rem;
+    background-image: url(./img/search-book-svgrepo-com.svg);
     background-size: contain;
     background-position: center;
     text-indent: -9999px;
@@ -77,23 +88,24 @@ img.logo {
 
 .books-container {
     display: flex;
+    justify-content: center;
     flex-wrap: wrap;
-    justify-content: space-between;
 }
 
 .book-card {
     width: calc(70% + 40px);
-    height: auto;
+    /* height: auto; */
+    height: 85%;
+    border: 1px solid black;
     margin-bottom: 20px;
     border-radius: 8px;
     overflow: hidden;
+    background-color: #c6c5c5;
     margin-left: 6rem;
 
 }
 
 .book-card img {
-    width: 70%;
-    height: 70%;
     object-fit: cover;
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
@@ -112,13 +124,6 @@ img.logo {
     font-size: 14px;
     margin-top: 8px;
 }
-
-
-.book-card {
-    background-color: #fff;
-
-}
-
 
 .book-card:hover {
     transform: translateY(-5px);
@@ -184,10 +189,11 @@ img.logo {
 
 
 .post-logo {
-    width: 3rem;
-    height: 3rem;
+    width: 2rem;
+    height: 2rem;
     display: inline-block;
-    background-image: url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 448 512%22%3E%3C!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--%3E%3Cpath d=%22M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z%22/%3E%3C/svg%3E');
+    /* position: absolute; */
+    background-image: url(./img/add-book-svgrepo-com.svg);
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -207,19 +213,92 @@ img.logo {
 
 
 .modal-create-content{
-    overflow: hidden;
-    width: 100vw;
-    height: 100vh;
-    display: none;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    background-color: rgb(0, 0, 0);
-    background-color: rgba(0, 0, 0, 0.4);
-    background-color: #fefefe;
-    margin: 5% auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 20%;
+        overflow: hidden;
+        width: 100vw;
+        height: 50vh;
+        display: none;
+        position: fixed;
+        z-index: 1;
+        left: 35%;
+        top: 0;
+        background-color: rgb(0, 0, 0);
+        background-color: rgba(0, 0, 0, 0.4);
+        background-color: #fefefe;
+        margin: 5% auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 20%;
+}
+
+/* Styles for the search input */
+#searchBookName {
+    width: 300px;
+    padding: 10px 15px;
+    font-size: 16px;
+    border: 2px solid #ccc;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    outline: none;
+}
+
+/* Change border and shadow on focus */
+#searchBookName:focus {
+    border-color: #007BFF;
+    box-shadow: 0 4px 8px rgba(0, 123, 255, 0.2);
+}
+
+/* Change placeholder color */
+#searchBookName::placeholder {
+    color: #999;
+}
+
+/* Add hover effect */
+#searchBookName:hover {
+    border-color: #999;
+}
+
+.paging{
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    gap: 4rem;
+    margin: 1%;
+}
+
+.prev-logo{
+    width: 4rem;
+    height: 4rem;
+    display: inline-block;
+    background-image: url(./img/left-arrow-next-svgrepo-com.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: none;
+    padding: 0;
+    margin: 0;
+    background-color: transparent;
+    cursor: pointer;
+    outline: none;
+    text-indent: -9999px;
+
+}
+
+.next-logo{
+    width: 4rem;
+    height: 4rem;
+    display: inline-block;
+    background-image: url(./img/right-arrow-next-svgrepo-com.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: none;
+    padding: 0;
+    margin: 0;
+    background-color: transparent;
+    cursor: pointer;
+    outline: none;
+    text-indent: -9999px;
 }
