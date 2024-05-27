@@ -1,6 +1,199 @@
 {
   "books": [
     {
+      "id": "1",
+      "book_name": "Harry Potter and the Sorcerer's Stone",
+      "authors_name": [
+        "J.K. Rowling"
+      ],
+      "num_pages": 320,
+      "short_description": "The first book in the Harry Potter series, following the magical journey of a young wizard, Harry Potter.",
+      "image": "https://images-na.ssl-images-amazon.com/images/I/81YOuOGFCJL.jpg",
+      "num_copies": 10,
+      "categories": [
+        "Fantasy"
+      ],
+      "ISBN": "978-0590353427"
+    },
+    {
+      "book_name": "The Catcher in the Rye",
+      "authors_name": [
+        "J.D. Salinger"
+      ],
+      "num_pages": 277,
+      "short_description": "A novel narrated by a teenager, Holden Caulfield, who describes his experiences in New York City after being expelled from prep school.",
+      "image": "https://npr.brightspotcdn.com/dims4/default/f735808/2147483647/strip/true/crop/363x574+0+0/resize/880x1392!/quality/90/?url=http%3A%2F%2Fnpr-brightspot.s3.amazonaws.com%2Flegacy%2Fsites%2Fwkar%2Ffiles%2Fcatcher_in_the_rye_cover.png",
+      "num_copies": 8,
+      "categories": [
+        "Fiction"
+      ],
+      "ISBN": "978-0316769487",
+      "id": "2"
+    },
+    {
+      "id": "3",
+      "book_name": "The Great Gatsby",
+      "authors_name": [
+        "F. Scott Fitzgerald"
+      ],
+      "num_pages": 180,
+      "short_description": "A novel set in the 1920s, following the life and times of millionaire Jay Gatsby and his neighbor Nick Carraway.",
+      "image": "https://images-na.ssl-images-amazon.com/images/I/71QKQ9mwV7L.jpg",
+      "num_copies": 6,
+      "categories": [
+        "Fiction",
+        "Classic"
+      ],
+      "ISBN": "978-0743273565"
+    },
+    {
+      "id": "4",
+      "book_name": "Pride and Prejudice",
+      "authors_name": [
+        "Jane Austen"
+      ],
+      "num_pages": 279,
+      "short_description": "A classic novel depicting the lives of the Bennet sisters and their pursuit of marriage.",
+      "image": "https://m.media-amazon.com/images/I/91E9-FyfvGL._AC_UF1000,1000_QL80_.jpg",
+      "num_copies": 7,
+      "categories": [
+        "Fiction",
+        "Romance",
+        "Classic"
+      ],
+      "ISBN": "978-0141439518"
+    },
+    {
+      "id": "5",
+      "book_name": "The Hobbit",
+      "authors_name": [
+        "J.R.R. Tolkien"
+      ],
+      "num_pages": 322,
+      "short_description": "A fantasy novel about the adventures of the hobbit Bilbo Baggins as he embarks on a quest to reclaim the lost Dwarf Kingdom of Erebor.",
+      "image": "https://m.media-amazon.com/images/I/717TGeIkVML._AC_UF1000,1000_QL80_.jpg",
+      "num_copies": 9,
+      "categories": [
+        "Fantasy",
+        "Adventure"
+      ],
+      "ISBN": "978-0345339683"
+    },
+    {
+      "id": "6",
+      "book_name": "The Lord of the Rings",
+      "authors_name": [
+        "J.R.R. Tolkien"
+      ],
+      "num_pages": 1178,
+      "short_description": "A epic high-fantasy novel set in the fictional world of Middle-earth, following the quest to destroy the One Ring.",
+      "image": "https://resizing.flixster.com/KZ4cHfk_DxoUCFkFFF1wfdxLvIY=/fit-in/705x460/v2/https://resizing.flixster.com/-XZAfHZM39UwaGJIFWKAE8fS0ak=/v3/t/assets/p28828_p_v8_ao.jpg",
+      "num_copies": 4,
+      "categories": [
+        "Fantasy",
+        "Adventure"
+      ],
+      "ISBN": "978-0544003415"
+    },
+    {
+      "id": "7",
+      "book_name": "To Kill a Mockingbird",
+      "authors_name": [
+        "Harper Lee"
+      ],
+      "num_pages": 281,
+      "short_description": "A novel about the serious issues of rape and racial inequality.",
+      "image": "https://cdn.britannica.com/21/182021-050-666DB6B1/book-cover-To-Kill-a-Mockingbird-many-1961.jpg",
+      "num_copies": 5,
+      "categories": [
+        "Fiction",
+        "Classic"
+      ],
+      "ISBN": "978-0061120084"
+    },
+    {
+      "id": "8",
+      "book_name": "1984",
+      "authors_name": [
+        "George Orwell"
+      ],
+      "num_pages": 328,
+      "short_description": "A dystopian novel set in a totalitarian regime, where freedom of thought is suppressed.",
+      "image": "https://m.media-amazon.com/images/I/612ADI+BVlL._AC_UF1000,1000_QL80_.jpg",
+      "num_copies": 10,
+      "categories": [
+        "Fiction",
+        "Dystopian"
+      ],
+      "ISBN": "978-0451524935"
+    },
+    {
+      "id": "9",
+      "book_name": "The Alchemist",
+      "authors_name": [
+        "Paulo Coelho"
+      ],
+      "num_pages": 197,
+      "short_description": "A novel about a young Andalusian shepherd named Santiago who travels from Spain to Egypt in search of a treasure.",
+      "image": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1654371463i/18144590.jpg",
+      "num_copies": 6,
+      "categories": [
+        "Fiction",
+        "Philosophical"
+      ],
+      "ISBN": "978-0061122415"
+    },
+    {
+      "id": "10",
+      "book_name": "The Da Vinci Code",
+      "authors_name": [
+        "Dan Brown"
+      ],
+      "num_pages": 689,
+      "short_description": "A mystery thriller novel about the quest for the Holy Grail, following symbologist Robert Langdon.",
+      "image": "https://upload.wikimedia.org/wikipedia/en/thumb/6/6b/DaVinciCode.jpg/220px-DaVinciCode.jpg",
+      "num_copies": 8,
+      "categories": [
+        "Fiction",
+        "Mystery",
+        "Thriller"
+      ],
+      "ISBN": "978-0307474278"
+    },
+    {
+      "id": "11",
+      "book_name": "Brave New World",
+      "authors_name": [
+        "Aldous Huxley"
+      ],
+      "num_pages": 268,
+      "short_description": "A dystopian novel set in a future world where the government controls every aspect of life.",
+      "image": "https://m.media-amazon.com/images/I/81zE42gT3xL._AC_UF1000,1000_QL80_.jpg",
+      "num_copies": 5,
+      "categories": [
+        "Fiction",
+        "Dystopian"
+      ],
+      "ISBN": "978-0060850524"
+    },
+    {
+      "id": "12",
+      "book_name": "Frankenstein",
+      "authors_name": [
+        "Mary Shelley"
+      ],
+      "num_pages": 280,
+      "short_description": "A novel about a young scientist who creates a grotesque creature in an unorthodox scientific experiment.",
+      "image": "https://m.media-amazon.com/images/I/81z7E0uWdtL._AC_UF1000,1000_QL80_.jpg",
+      "num_copies": 6,
+      "categories": [
+        "Fiction",
+        "Horror",
+        "Classic"
+      ],
+      "ISBN": "978-0486282114"
+    },
+    {
       "id": "13",
       "book_name": "The Picture of Dorian Gray",
       "authors_name": [

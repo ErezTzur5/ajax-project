@@ -13,10 +13,6 @@
         <a href="./index.html">
           <img class="logo" src="" alt="Logo" />
         </a>
-        <h2 class="">Bookris</h2>
-        <a href="./history.html">
-          <img class="history" src="" alt="Logo-history" />
-        </a>
       </div>
     </section>
     <section class="section-2" id="section-2">
@@ -86,15 +82,11 @@
       </div>
 
       <div>
-        <button
-          onclick=""
-          id="createBook"
-          class="post-logo"
-          type="submit"
-        ></button>
         <form class="search-book" id="search-book">
+          <button id="createBook" class="post-logo" type="submit"></button>
           <div>
             <label for="searchBookName"></label>
+
             <input
               type="text"
               id="searchBookName"
@@ -189,9 +181,11 @@
           </div>
         </div>
       </div>
-      <button onclick="prevHandler()">Previous</button>
-      <button onclick="nextHandler()">Next</button>
     </section>
+    <div class="paging">
+      <button class="prev-logo" onclick="prevHandler()">Previous</button>
+      <button class="next-logo" onclick="nextHandler()">Next</button>
+    </div>
     <script src="https://unpkg.com/axios@0.21.1/dist/axios.min.js"></script>
     <script src="app.js"></script>
   </body>
