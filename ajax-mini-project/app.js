@@ -2,6 +2,7 @@ const baseURL = 'http://localhost:8001';
 
 let pageNum = 1; // Start with page 1
 let bookPerPage = 12;
+
 let booksNumInPage;
 
 
@@ -221,28 +222,55 @@ function prevHandler() {
     }
 }
 
+
+
 function search(event) {
-    event.preventDefault(); // Prevents the default form submission behavior
-    var searchInput = document.getElementById('searchBookName').value.toLowerCase();
+    event.preventDefault(); 
+    const searchInput = document.getElementById('searchBookName').value.toLowerCase();
     console.log(searchInput);
+    const foundBooks = [];
+    let pageNum = 1; // Corrected variable name
+    const bookPerPage = 12; // Assuming you have a variable named bookPerPage defined somewhere
 
-    axios.get(`${baseURL}/books`)
-        .then((response) => {
-            const allBooks = response.data;
-            console.log('ALL', allBooks);
+    
 
-            // Filter books based on search input
-            filteredBooks = allBooks.filter(book => book.book_name.toLowerCase().includes(searchInput));
-            console.log('Filtered Books:', filteredBooks);
 
-            // Reset the page number to 1
-            pageNum = 1;
+    function fetchBooks(pageNum) {
+        const url1 = `http://localhost:8001/books?_page=${pageNum}`
+        axios.get(url1)
 
-            // Display the first page of the filtered books
-            displayBookImages(filteredBooks);
-        })
-        .catch((err) => console.error(err));
+
+            .then((response) => {
+                console.log(url1);
+                console.log(`pageNum: ${pageNum}`);
+                const allBooks = response.data;
+                console.log('ALL', allBooks);
+
+                // const filteredBooks = allBooks.filter(book => book.book_name.toLowerCase().includes(searchInput));
+                // console.log('Filtered Books:', filteredBooks);
+
+                // filteredBooks.forEach(book => {
+                //     foundBooks.push(book);
+                // });
+
+                // if (foundBooks.length < bookPerPage && allBooks.length === bookPerPage) {
+                //     // If the number of found books is less than the desired per page and there are more books in the next page
+                //     pageNum++; // Move to the next page
+                //     console.log(pageNum);
+                //     fetchBooks(pageNum); // Fetch books from the next page
+                // } else {
+                //     displayBookImages(foundBooks);
+                //     pageNum = 1; // Reset page number for subsequent searches
+                // }
+            })
+            .catch((err) => console.error(err));
+    }
+
+    // Start fetching books
+    fetchBooks(pageNum);
 }
+
+
 
 
 function deleteBook(bookId) {
@@ -254,6 +282,7 @@ function deleteBook(bookId) {
         
         const currentTime = new Date(); // Get the current time
         updateHistory(bookName, 'DELETE', currentTime, bookId)
+        console.log(updateHistory(bookName, 'DELETE', currentTime, bookId)); // Call updateHistory with correct arguments
     })
 
     axios.delete(url)
