@@ -852,23 +852,6 @@
         "Horror"
       ],
       "ISBN": "978-0307743657"
-    },
-    {
-      "id": "2c77",
-      "book_name": "natan",
-      "authors_name": [
-        "nahtan",
-        "karsney"
-      ],
-      "num_pages": 412,
-      "short_description": "natan is a boring teacher",
-      "image": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxISEhUSEhIVFRUXFxcXFxUVFRcVFRgXFRUXFxcVFRcYHSggGB0lHRUVITEhJSkrLi4uFx8zODMtNygtLisBCgoKDg0OGhAQGi0dHx0tLS0tLTAtLS0rLS0tLS0tLS0tLS0rLS0tLS0tLS0tLSstLS0tLSstLS0tLS0tLS0tLf/AABEIAK8BHwMBIgACEQEDEQH/xAAcAAACAgMBAQAAAAAAAAAAAAABAgADBAUGBwj/xABCEAABAwIDBQUGAwUFCQAAAAABAAIRAyEEEjEFQVFhcQYTIoGRB0KhsdHwMlLBI0NicvEVU5Ki4RQXNGNzgoPD0v/EABgBAQEBAQEAAAAAAAAAAAAAAAABAgME/8QAHxEBAQEBAQADAAMBAAAAAAAAAAERAhIDITEyUWEi/9oADAMBAAIRAxEAPwD2JVuVhVbkoRQoBSVFWIpVCVpBJVbkxVDycw4QVURxSoPKUuUU2e8eaZUtaAZH3CeVpkxVbkSUhKBg5NmSKILAikBTSgZFLKKijKKVRAyUlQlKSpREwSIhZU4TSkCMrQYIsCQJgUFoKKQFGUDyjKSVJUDkogpJRBQOUjtExVbtEoQKIBCVFWgqEpQgStsiVW42RcUrigxatWCg10pKLBLjGrjrytvVwpjgsyKCmdPlHBENHALWpipr0XOVwA4D0U8gppigOTApzTHAIhg4D0V9GFzKZlZlHAeiAaFNMJKaUxZyCGUcB6JqoCpKmTkFI5BNCuclDlYQOAQawDcpQko5lZCBb0UADkZULRwCIA4BXRJUzJw0cB6KZRwHomgtKhQyjgFHNHAJoYJlW3onsmggJgq4HBOzooLCq36Kwql5VoVCUJUSB5QJQlKStRCufeErnIO1nr8Y+irrGxVQQ6UzVWmaUVYoEsqAqCwIlJKMooqSgVJUDIpZUlA0qSllSUDOUlCVEEcYEnQJaNVrhma4OHFpBHqFi",
-      "num_copies": 4,
-      "categories": [
-        "Horror",
-        "Action"
-      ],
-      "ISBN": "8787675665"
     }
   ]
 }

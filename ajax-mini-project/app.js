@@ -258,21 +258,51 @@ function hideLoader() {
 
 
 function nextHandler() {
-    
-    if (bookPerPage === booksNumInPage) {
-        pageNum++; // Increment the page number
-        fetchBooks(pageNum);
+    const searchInput = document.getElementById('searchBookName').value.toLowerCase();
+    console.log(searchInput.length);
+    if(searchInput.length==0){
+        if (bookPerPage === booksNumInPage) {
+            pageNum++; // Incremnt the page number
+            fetchBooks(pageNum);
+        }
+        else {
+            console.log("not enough books");
+        }
     }
-    else {
-        console.log("not enough books");
+    else{
+        if (bookPerPage === booksNumInPage) {
+            pageNum++;
+            filterBooks(searchInput,pageNum)
+           
+        }
+        else {
+            console.log("not enough books");
+        }
     }
 }
 
 function prevHandler() {
-    if (pageNum > 1) {
-        pageNum--; // Decrement the page number
-        fetchBooks(pageNum);
+    const searchInput = document.getElementById('searchBookName').value.toLowerCase();
+    console.log(searchInput.length);
+    if(searchInput.length==0){
+        if (pageNum > 1) {
+            pageNum--; 
+            fetchBooks(pageNum);
+        }
+        else {
+            console.log("not enough books");
+        }
     }
+    else{
+        if (pageNum > 1) {
+            pageNum--;
+            filterBooks(searchInput,pageNum);
+        }
+        else {
+            console.log("not enough books");
+        }
+    }
+   
 }
 
 
@@ -288,8 +318,9 @@ async function search(event) {
 
     
 
-async function filterBooks(searchInput) {
-    const url = `http://localhost:8001/books?_page=${pageNum}&_per_page=${bookPerPage}`;
+pageNum=1;
+async function filterBooks(searchInput,pageNum) {
+    const url = `${baseURL}/books?_page=${pageNum}&_per_page=${bookPerPage}`;
 
     try {
         const response = await axios.get(url);
