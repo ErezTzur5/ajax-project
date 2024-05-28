@@ -67,15 +67,15 @@ const displayBookImages = (books) => {
         // Add event listener to book card div
         bookDiv.addEventListener('click', () => {
             // Populate modal with book details
-            modalTitle.textContent = `Book Name: ${book.book_name}`;
+            modalTitle.innerHTML = `Book Name: ${book.book_name}`;
             modalImage.src = book.image;
             modalImage.alt = book.book_name;
-            modalAuthor.textContent = `Author: ${book.authors_name}`;
-            modalDescription.textContent = `Description: ${book.short_description}`;
-            modalPageNumber.textContent = `Page Number: ${book.num_pages}`;
-            modalCopyNumber.textContent = `Copies: ${book.num_copies}`;
-            modalCategory.textContent = `Category: ${book.categories}`;
-            modalISBN.textContent = `ISBN: ${book.ISBN}`;
+            modalAuthor.innerHTML = `<strong>Author:</strong> ${book.authors_name}`;
+            modalDescription.innerHTML = `<strong>Description:</strong> ${book.short_description}`;
+            modalPageNumber.innerHTML = `<strong>Page Number:</strong> ${book.num_pages}`;
+            modalCopyNumber.innerHTML = `<strong>Copies:</strong> ${book.num_copies}`;
+            modalCategory.innerHTML = `<strong>Category:</strong> ${book.categories}`;
+            modalISBN.innerHTML = `<strong>ISBN:</strong> ${book.ISBN}`;
 
             // Display the modal
             bookModal.style.display = 'block';
@@ -255,7 +255,6 @@ function hideLoader() {
     const loader = document.getElementById('loader');
     loader.style.display = 'none';
 }
-
 
 function nextHandler() {
     const searchInput = document.getElementById('searchBookName').value.toLowerCase();
