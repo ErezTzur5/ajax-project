@@ -23,6 +23,7 @@ const editButton = document.createElement('button');
 const updateModal = document.getElementById('updateBookModal');
 const closeUpdateModal = document.getElementById('closeUpdateModal');
 const updateButton = document.getElementById('updateBookBtn');
+const textareaEdit = document.getElementById('updateShortDescription')
 // for creating books
 const createButton = document.getElementById('createBook');
 const createDiv = document.getElementById('modal-create-content');
@@ -92,6 +93,8 @@ const displayBookImages = (books) => {
             //update
             editButton.classList.add('edit-btn');
             editButton.textContent = 'Edit';
+            //edit text area class
+            textareaEdit.classList.add('textarea-edit')
             editButton.addEventListener('click', (event) => {
                 updateModal.style.display = 'block';
 
@@ -220,7 +223,18 @@ function createBook() {
         .then(response => {
             console.log(`Book '${newBook.book_name}' added successfully.`);
             console.log(response.data);
-            window.location.reload(); // Reload the page after adding the book
+            Swal.fire({
+                icon: 'success',
+                title: 'Adding Book',
+                text: `${newBook.book_name} was successfully added..`,
+                showConfirmButton: false,
+                timer: 2000
+
+            });
+            setTimeout(() => {
+                location.reload();
+            }, 2000);
+
 
         })
         .catch(error => {
@@ -360,7 +374,17 @@ function deleteBook(bookId) {
     axios.delete(url)
         .then(response => {
             console.log(`Book with ID ${bookId} deleted successfully.`);
-            location.reload();
+            Swal.fire({
+                icon: 'success',
+                title: 'Delete Book..',
+                text: `${response.data.book_name} was successfully deleted.`,
+                showConfirmButton: false,
+                timer: 2000
+
+            });
+            setTimeout(() => {
+                location.reload();
+            }, 2000);
         })
         .catch(error => {
             console.error(`There was an error deleting the book with ID ${bookId}:`, error);
@@ -369,6 +393,7 @@ function deleteBook(bookId) {
 
 function updateBook(bookId) {
     const url = `http://localhost:8001/books/${bookId}`;
+
 
     axios.get(url).then((response) => {
         const bookName = response.data.book_name;
@@ -393,7 +418,17 @@ function updateBook(bookId) {
             console.log(`Book with ID ${bookId} updated successfully.`);
             console.log(response.data);
             updateModal.style.display = 'none';
-            window.location.reload();
+            Swal.fire({
+                icon: 'success',
+                title: 'Edit Book..',
+                text: `${response.data.book_name} was successfully edited updated.`,
+                showConfirmButton: false,
+                timer: 2000
+
+            });
+            setTimeout(() => {
+                location.reload();
+            }, 2000);
         })
         .catch(error => {
             console.error(`There was an error updating the book with ID ${bookId}:`, error);

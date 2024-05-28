@@ -446,6 +446,43 @@ body {
     margin-top: 2rem;
 }
 
+#updateBookBtn {
+    width: 2rem;
+    height: 2rem;
+    display: inline-block;
+    background-image: url(./img/check-circle-svgrepo-com.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: none;
+    padding: 0;
+    background-color: transparent;
+    cursor: pointer;
+    outline: none;
+    text-indent: -9999px;
+    margin-top: 2rem;
+}
+
+.modal-content-update {
+    display: flex;
+    width: 300px;
+    padding: 10px;
+    margin: 0 auto;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #FFFFFF;
+    margin-top: 1rem;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+
+.textarea-edit {
+    width: 293px;
+    height: 98px;
+}
+
 #buttons {
     display: flex;
     flex-wrap: wrap;
