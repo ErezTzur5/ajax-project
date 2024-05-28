@@ -1,11 +1,8 @@
-
-
 const baseURL = 'http://localhost:8001';
 
 let pageNum = 1; // Start with page 1
 let bookPerPage = 12;
 let booksNumInPage;
-
 
 const booksContainer = document.querySelector('#booksContainer');
 
@@ -34,7 +31,6 @@ const bookModalCreate = document.getElementById('bookModalCreate');
 
 // history
 const historyDiv = document.getElementById('historyDiv');
-
 
 const displayBookImages = (books) => {
     // Clear existing content
@@ -90,7 +86,7 @@ const displayBookImages = (books) => {
             deleteButton.addEventListener('click', (event) => {
                 deleteBook(book.id);
             });
-        
+
             buttonsDiv.appendChild(deleteButton);
 
             //update
@@ -110,6 +106,7 @@ const displayBookImages = (books) => {
                 document.getElementById('updateISBN').value = book.ISBN;
 
                 updateButton.addEventListener('click', (event) => {
+
                     updateBook(book.id);
                 });
             });
@@ -120,7 +117,6 @@ const displayBookImages = (books) => {
         rowDiv.appendChild(bookDiv);
     });
 };
-
 
 // event listener for closing the book popup and reset 
 closeModal.addEventListener('click', () => {
@@ -157,7 +153,7 @@ closeCreateButton.addEventListener('click', () => {
     document.body.style.overflow = 'auto';
     createDiv.style.display = 'none';
     createDiv.style.overflow = 'none';
-    
+
     document.getElementById('createBookName').value = "";
     document.getElementById('createAuthorsName').value = "";
     document.getElementById('createNumPages').value = "";
@@ -173,8 +169,13 @@ createButton.addEventListener('click', () => {
     document.body.style.overflow = 'hidden';
     createDiv.style.display = 'block';
     createDiv.style.overflow = 'scroll';
-    
-    
+
+
+});
+
+document.getElementById('search-book').addEventListener('submit', function (event) {
+    event.preventDefault();
+
 });
 
 function createBook() {
@@ -190,10 +191,14 @@ function createBook() {
     const categories = categoriesInput.split(',').map(category => category.trim()); // Split categories by comma and trim spaces
     const ISBN = document.getElementById('createISBN').value;
 
-    // Check if any of the required fields are empty
+    // check if any of the required fields are empty
     if (!bookName || !authorsName[0] || !numPages || !shortDescription || !image || !numCopies || !categories[0] || !ISBN) {
-        // If any field is empty, display a message
-        alert('Please fill in all the required fields.');
+
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Please enter the required fields.'
+        });
         return; // Exit the function if any field is empty
     }
 
@@ -209,42 +214,44 @@ function createBook() {
         ISBN: ISBN
     };
 
+    addToHistory("POST", newBook.book_name)
+
     axios.post(`${baseURL}/books`, newBook)
         .then(response => {
             console.log(`Book '${newBook.book_name}' added successfully.`);
             console.log(response.data);
             window.location.reload(); // Reload the page after adding the book
+
         })
         .catch(error => {
             console.error('Error adding the book:', error);
         });
 }
 
-
-
-function fetchBooks(pageNum,filteredBooks) {
+function fetchBooks(pageNum, filteredBooks) {
     showLoader();
-    
+
     let url = `${baseURL}/books?_page=${pageNum}&_per_page=${bookPerPage}`;
     axios
         .get(url)
-        .then((response) => {  
+        .then((response) => {
             if (filteredBooks) {
-                console.log("in if in fetch",filteredBooks);
-                
+                console.log("in if in fetch", filteredBooks);
+
                 displayBookImages(filteredBooks)
                 hideLoader();
             }
-            else{
+            else {
                 console.log('else');
                 const books = response.data;
                 booksNumInPage = books.data.length;
-                displayBookImages(books.data);}
-                hideLoader();
-        
+                displayBookImages(books.data);
+            }
+            hideLoader();
+
         })
-        .catch((err) => console.error(err),hideLoader());
-        
+        .catch((err) => console.error(err), hideLoader());
+
 }
 
 function showLoader() {
@@ -261,7 +268,7 @@ function hideLoader() {
 function nextHandler() {
     const searchInput = document.getElementById('searchBookName').value.toLowerCase();
     console.log(searchInput.length);
-    if(searchInput.length==0){
+    if (searchInput.length == 0) {
         if (bookPerPage === booksNumInPage) {
             pageNum++; // Incremnt the page number
             fetchBooks(pageNum);
@@ -270,11 +277,11 @@ function nextHandler() {
             console.log("not enough books");
         }
     }
-    else{
+    else {
         if (bookPerPage === booksNumInPage) {
             pageNum++;
-            filterBooks(searchInput,pageNum)
-           
+            filterBooks(searchInput, pageNum)
+
         }
         else {
             console.log("not enough books");
@@ -285,42 +292,45 @@ function nextHandler() {
 function prevHandler() {
     const searchInput = document.getElementById('searchBookName').value.toLowerCase();
     console.log(searchInput.length);
-    if(searchInput.length==0){
+    if (searchInput.length == 0) {
         if (pageNum > 1) {
-            pageNum--; 
+            pageNum--;
             fetchBooks(pageNum);
         }
         else {
             console.log("not enough books");
         }
     }
-    else{
+    else {
         if (pageNum > 1) {
             pageNum--;
-            filterBooks(searchInput,pageNum);
+            filterBooks(searchInput, pageNum);
         }
         else {
             console.log("not enough books");
         }
     }
-   
+
 }
-
-
-
 
 async function search(event) {
-    event.preventDefault(); 
+    event.preventDefault();
     const searchInput = document.getElementById('searchBookName').value.toLowerCase();
+    if (searchInput.trim() === '') {
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Please enter a book name to search.'
+        });
+        return;
+    }
     const newBooks = await filterBooks(searchInput);
-    fetchBooks(pageNum,newBooks);
+    fetchBooks(pageNum, newBooks);
 
 }
 
-    
-
-pageNum=1;
-async function filterBooks(searchInput,pageNum) {
+pageNum = 1;
+async function filterBooks(searchInput, pageNum) {
     const url = `${baseURL}/books?_page=${pageNum}&_per_page=${bookPerPage}`;
 
     try {
@@ -338,11 +348,6 @@ async function filterBooks(searchInput,pageNum) {
         return [];
     }
 }
-
-
-
-
-
 
 function deleteBook(bookId) {
     const url = `http://localhost:8001/books/${bookId}`;
@@ -362,9 +367,15 @@ function deleteBook(bookId) {
         });
 }
 
-
 function updateBook(bookId) {
     const url = `http://localhost:8001/books/${bookId}`;
+
+    axios.get(url).then((response) => {
+        const bookName = response.data.book_name;
+        console.log(bookName);
+        addToHistory("PUT", bookName)
+
+    });
 
     const updatedBook = {
         book_name: document.getElementById('updateBookName').value,
@@ -389,34 +400,27 @@ function updateBook(bookId) {
         });
 }
 
-
-
 async function addToHistory(oper, book_name) {
     const historyItem = {
-      operation: oper,
-      time: new Date().toISOString(),
-      book_name: book_name
+        operation: oper,
+        time: new Date().toISOString(),
+        book_name: book_name
     };
     console.log(historyItem);
-    newP =  document.createElement('p');
-    newP.innerHTML = `METHOD: ${operation} Book name: ${book_name} at ${time}`;
-    historyDiv.appendChild(newP);
-    
-
     try {
-      await saveToHistory(historyItem);
+        await saveToHistory(historyItem);
     } catch (error) {
-      showLoader('Error adding history item');
+        showLoader('Error adding history item');
     }
-  }
-  
-  async function saveToHistory(historyItem) {
+}
+
+async function saveToHistory(historyItem) {
     try {
-      await axios.post('http://localhost:8001/history', historyItem);
+        await axios.post('http://localhost:8001/history', historyItem);
     } catch (error) {
-      showLoader('Error saving history item:');
-    }
-  }
+        showLoader('Error saving history item: ' + error.message);
+    }
+}
 
 
 

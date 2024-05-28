@@ -1,6 +1,102 @@
 {
   "books": [
     {
+      "book_name": "Harry Potter and the Sorcerer's Stone",
+      "authors_name": [
+        "J.K. Rowling"
+      ],
+      "num_pages": 320,
+      "short_description": "The first book in the Harry Potter series, following the magical journey of a young wizard, Harry Potter.",
+      "image": "https://images-na.ssl-images-amazon.com/images/I/81YOuOGFCJL.jpg",
+      "num_copies": 10,
+      "categories": [
+        "Fantasy"
+      ],
+      "ISBN": "978-05903534278",
+      "id": "1"
+    },
+    {
+      "id": "2",
+      "book_name": "The Catcher in the Rye",
+      "authors_name": [
+        "J.D. Salinger"
+      ],
+      "num_pages": 277,
+      "short_description": "A novel narrated by a teenager, Holden Caulfield, who describes his experiences in New York City after being expelled from prep school.",
+      "image": "https://npr.brightspotcdn.com/dims4/default/f735808/2147483647/strip/true/crop/363x574+0+0/resize/880x1392!/quality/90/?url=http%3A%2F%2Fnpr-brightspot.s3.amazonaws.com%2Flegacy%2Fsites%2Fwkar%2Ffiles%2Fcatcher_in_the_rye_cover.png",
+      "num_copies": 8,
+      "categories": [
+        "Fiction",
+        "Classic"
+      ],
+      "ISBN": "978-0316769488"
+    },
+    {
+      "id": "3",
+      "book_name": "The Great Gatsby",
+      "authors_name": [
+        "F. Scott Fitzgerald"
+      ],
+      "num_pages": 180,
+      "short_description": "A novel set in the 1920s, following the life and times of millionaire Jay Gatsby and his neighbor Nick Carraway.",
+      "image": "https://images-na.ssl-images-amazon.com/images/I/71QKQ9mwV7L.jpg",
+      "num_copies": 6,
+      "categories": [
+        "Fiction",
+        "Classic"
+      ],
+      "ISBN": "978-0743273565"
+    },
+    {
+      "id": "4",
+      "book_name": "Pride and Prejudice",
+      "authors_name": [
+        "Jane Austen"
+      ],
+      "num_pages": 279,
+      "short_description": "A classic novel depicting the lives of the Bennet sisters and their pursuit of marriage.",
+      "image": "https://m.media-amazon.com/images/I/91E9-FyfvGL._AC_UF1000,1000_QL80_.jpg",
+      "num_copies": 7,
+      "categories": [
+        "Fiction",
+        "Romance",
+        "Classic"
+      ],
+      "ISBN": "978-0141439518"
+    },
+    {
+      "id": "5",
+      "book_name": "The Hobbit",
+      "authors_name": [
+        "J.R.R. Tolkien"
+      ],
+      "num_pages": 322,
+      "short_description": "A fantasy novel about the adventures of the hobbit Bilbo Baggins as he embarks on a quest to reclaim the lost Dwarf Kingdom of Erebor.",
+      "image": "https://m.media-amazon.com/images/I/717TGeIkVML._AC_UF1000,1000_QL80_.jpg",
+      "num_copies": 9,
+      "categories": [
+        "Fantasy",
+        "Adventure"
+      ],
+      "ISBN": "978-0345339683"
+    },
+    {
+      "id": "6",
+      "book_name": "The Lord of the Rings",
+      "authors_name": [
+        "J.R.R. Tolkien"
+      ],
+      "num_pages": 1178,
+      "short_description": "A epic high-fantasy novel set in the fictional world of Middle-earth, following the quest to destroy the One Ring.",
+      "image": "https://resizing.flixster.com/KZ4cHfk_DxoUCFkFFF1wfdxLvIY=/fit-in/705x460/v2/https://resizing.flixster.com/-XZAfHZM39UwaGJIFWKAE8fS0ak=/v3/t/assets/p28828_p_v8_ao.jpg",
+      "num_copies": 4,
+      "categories": [
+        "Fantasy",
+        "Adventure"
+      ],
+      "ISBN": "978-0544003415"
+    },
+    {
       "id": "7",
       "book_name": "To Kill a Mockingbird",
       "authors_name": [
@@ -758,5 +854,24 @@
       "ISBN": "978-0307743657"
     }
   ],
-  "history": []
+  "history": [
+    {
+      "id": "3e9b",
+      "operation": "PUT",
+      "time": "2024-05-28T17:01:34.290Z",
+      "book_name": "Harry Potter and the Sorcerer's Stone"
+    },
+    {
+      "id": "3829",
+      "operation": "POST",
+      "time": "2024-05-28T17:03:23.629Z",
+      "book_name": "שמיים אדומים"
+    },
+    {
+      "id": "d9f9",
+      "operation": "DELETE",
+      "time": "2024-05-28T17:03:50.543Z",
+      "book_name": "שמיים אדומים"
+    }
+  ]
 }
