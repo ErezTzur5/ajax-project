@@ -1,3 +1,5 @@
+
+
 const baseURL = 'http://localhost:8001';
 
 let pageNum = 1; // Start with page 1
@@ -31,7 +33,7 @@ const closeCreateButton = document.getElementById('closecreateModal');
 const bookModalCreate = document.getElementById('bookModalCreate');
 
 // history
-const historyDiv = document.getElementById('history-container');
+const historyDiv = document.getElementById('historyDiv');
 
 
 const displayBookImages = (books) => {
@@ -345,15 +347,11 @@ async function filterBooks(searchInput,pageNum) {
 function deleteBook(bookId) {
     const url = `http://localhost:8001/books/${bookId}`;
 
-    axios.get(url)
-    .then(response => {
+    axios.get(url).then((response) => {
         const bookName = response.data.book_name;
-        
-        const currentTime = new Date(); // Get the current time
-        updateHistory(bookName, 'DELETE', currentTime, bookId)
-        console.log(updateHistory(bookName, 'DELETE', currentTime, bookId)); // Call updateHistory with correct arguments
-    })
+        addToHistory("DELETE", bookName)
 
+    })
     axios.delete(url)
         .then(response => {
             console.log(`Book with ID ${bookId} deleted successfully.`);
@@ -393,5 +391,33 @@ function updateBook(bookId) {
 
 
 
-// Call the function to display book images when the page loads
+async function addToHistory(oper, book_name) {
+    const historyItem = {
+      operation: oper,
+      time: new Date().toISOString(),
+      book_name: book_name
+    };
+    console.log(historyItem);
+    newP =  document.createElement('p');
+    newP.innerHTML = `METHOD: ${operation} Book name: ${book_name} at ${time}`;
+    historyDiv.appendChild(newP);
+    
+
+    try {
+      await saveToHistory(historyItem);
+    } catch (error) {
+      showLoader('Error adding history item');
+    }
+  }
+  
+  async function saveToHistory(historyItem) {
+    try {
+      await axios.post('http://localhost:8001/history', historyItem);
+    } catch (error) {
+      showLoader('Error saving history item:');
+    }
+  }
+
+
+
 window.onload = () => fetchBooks(pageNum);
