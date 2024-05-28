@@ -29,7 +29,6 @@ body {
     height: 100%;
     display: block;
     color: white;
-    /* text-align: center; */
     text-align: none;
     padding: 14px 20px;
 }
@@ -49,7 +48,8 @@ body {
     text-indent: -9999px;
     border: #333 1px solid;
     border-radius: 50%;
-    transition: filter 0.5s ease; /* Add transition for smooth effect */
+    transition: filter 0.5s ease;
+    margin-left: 1%;
 }
 
 
@@ -94,7 +94,6 @@ body {
 
 .book-card {
     width: calc(70% + 40px);
-    /* height: auto; */
     height: 85%;
     border: 1px solid black;
     margin-bottom: 20px;
@@ -144,6 +143,20 @@ body {
     background-color: rgb(0, 0, 0);
     background-color: rgba(0, 0, 0, 0.4);
 }
+
+.createModal{
+    overflow: hidden;
+    width: 100vw;
+    height: 100vh;
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
 
 .modalImage {
     height: 100%;
@@ -208,29 +221,27 @@ body {
   
   .post-logo:hover,
   .post-logo:focus {
-    outline: none; /* Removes the default focus outline */
+    outline: none;
   }
 
 
-.modal-create-content{
-        overflow: hidden;
-        width: 100vw;
-        height: 50vh;
-        display: none;
-        position: fixed;
-        z-index: 1;
-        left: 35%;
-        top: 0;
-        background-color: rgb(0, 0, 0);
-        background-color: rgba(0, 0, 0, 0.4);
-        background-color: #fefefe;
-        margin: 5% auto;
-        padding: 20px;
-        border: 1px solid #888;
-        width: 20%;
+
+.modal-create-content {
+    overflow: hidden;
+    width: 50%;
+    height: 80%;
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 25%;
+    top: 0;
+    background-color: rgb(255, 255, 255);
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    text-align: center;
 }
 
-/* Styles for the search input */
 #searchBookName {
     width: 300px;
     padding: 10px 15px;
@@ -242,22 +253,37 @@ body {
     outline: none;
 }
 
-/* Change border and shadow on focus */
+
 #searchBookName:focus {
     border-color: #007BFF;
     box-shadow: 0 4px 8px rgba(0, 123, 255, 0.2);
 }
 
-/* Change placeholder color */
+
 #searchBookName::placeholder {
     color: #999;
 }
 
-/* Add hover effect */
+
 #searchBookName:hover {
     border-color: #999;
 }
 
+.create-input{
+    width: 200px;
+    padding: 10px 15px;
+    font-size: 16px;
+    border: 2px solid #ccc;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    outline: none;
+}
+.label-description{
+    position: relative;
+    bottom: 3%
+
+}
 .paging{
     display: flex;
     flex-wrap: wrap;
@@ -304,8 +330,6 @@ body {
 }
 
 .loader{
-    /* HTML:  */
-
     width: 50px;
     padding: 8px;
     aspect-ratio: 1;
@@ -321,4 +345,61 @@ body {
     animation: l3 1s infinite linear;
   }
   @keyframes l3 {to{transform: rotate(1turn)}
+}
+
+.createBookBtn{
+    width: 4rem;
+    height: 4rem;
+    display: inline-block;
+    background-image: url(./img/add-book-svgrepo-com.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: none;
+    padding: 0;
+    background-color: transparent;
+    cursor: pointer;
+    outline: none;
+    text-indent: -9999px;
+    margin-top: 2rem;
+}
+
+.edit-btn{
+    width: 2rem;
+    height: 2rem;
+    display: inline-block;
+    background-image: url(./img/edit-svgrepo-com.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: none;
+    padding: 0;
+    background-color: transparent;
+    cursor: pointer;
+    outline: none;
+    text-indent: -9999px;
+    margin-top: 2rem;
+}
+
+.delete-btn{
+    width: 2rem;
+    height: 2rem;
+    display: inline-block;
+    background-image: url(./img/trash-svgrepo-com.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: none;
+    padding: 0;
+    background-color: transparent;
+    cursor: pointer;
+    outline: none;
+    text-indent: -9999px;
+    margin-top: 2rem;
+}
+
+#buttons{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
 }

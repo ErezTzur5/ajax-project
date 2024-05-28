@@ -28,6 +28,7 @@ const updateButton = document.getElementById('updateBookBtn');
 const createButton = document.getElementById('createBook');
 const createDiv = document.getElementById('modal-create-content');
 const closeCreateButton = document.getElementById('closecreateModal');
+const bookModalCreate = document.getElementById('bookModalCreate');
 
 // history
 const historyDiv = document.getElementById('history-container');
@@ -82,6 +83,7 @@ const displayBookImages = (books) => {
             // catching the buttons div
 
             //delete
+            deleteButton.classList.add('delete-btn');
             deleteButton.textContent = 'Delete';
             deleteButton.addEventListener('click', (event) => {
                 deleteBook(book.id);
@@ -90,6 +92,7 @@ const displayBookImages = (books) => {
             buttonsDiv.appendChild(deleteButton);
 
             //update
+            editButton.classList.add('edit-btn');
             editButton.textContent = 'Edit';
             editButton.addEventListener('click', (event) => {
                 updateModal.style.display = 'block';
@@ -148,8 +151,11 @@ closeUpdateModal.addEventListener('click', () => {
 });
 
 closeCreateButton.addEventListener('click', () => {
+    bookModalCreate.style.display = 'none';
+    document.body.style.overflow = 'auto';
     createDiv.style.display = 'none';
-    document.body.style.overflow = 'auto'
+    createDiv.style.overflow = 'none';
+    
     document.getElementById('createBookName').value = "";
     document.getElementById('createAuthorsName').value = "";
     document.getElementById('createNumPages').value = "";
@@ -161,9 +167,11 @@ closeCreateButton.addEventListener('click', () => {
 });
 
 createButton.addEventListener('click', () => {
+    bookModalCreate.style.display = 'block';
+    document.body.style.overflow = 'hidden';
     createDiv.style.display = 'block';
     createDiv.style.overflow = 'scroll';
-    document.body.style.overflow = 'none';
+    
     
 });
 
@@ -250,6 +258,7 @@ function hideLoader() {
 
 
 function nextHandler() {
+    
     if (bookPerPage === booksNumInPage) {
         pageNum++; // Increment the page number
         fetchBooks(pageNum);
@@ -280,7 +289,7 @@ async function search(event) {
     
 
 async function filterBooks(searchInput) {
-    const url = `http://localhost:8001/books`;
+    const url = `http://localhost:8001/books?_page=${pageNum}&_per_page=${bookPerPage}`;
 
     try {
         const response = await axios.get(url);

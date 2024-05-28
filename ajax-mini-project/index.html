@@ -9,6 +9,7 @@
 
   <body>
     <div id="loader" class="loader"></div>
+
     <section class="section-1" id="section-1">
       <div class="navbar">
         <a href="./index.html">
@@ -16,69 +17,89 @@
         </a>
       </div>
     </section>
+
     <section class="section-2" id="section-2">
       <!-- creation of book -->
-      <div id="createBookModal" class="create-modal">
-        <div id="modal-create-content" class="modal-create-content">
-          <span id="closecreateModal" class="close">&times;</span>
-          <h2>Create Book</h2>
-          <label for="createBookName">Book Name:</label>
-          <input
-            type="text"
-            id="createBookName"
-            placeholder="Book Name"
-            required
-          /><br /><br />
-          <label for="createAuthorsName">Author's Name:</label>
-          <input
-            type="text"
-            id="createAuthorsName"
-            placeholder="Author's Name"
-            required
-          /><br /><br />
-          <label for="createNumPages">Number of Pages:</label>
-          <input
-            type="number"
-            id="createNumPages"
-            placeholder="Number of Pages"
-            required
-          /><br /><br />
-          <label for="createShortDescription">Short Description:</label>
-          <textarea
-            id="createShortDescription"
-            placeholder="Short Description"
-            required
-          ></textarea
-          ><br /><br />
-          <label for="createImage">Image URL:</label>
-          <input
-            type="text"
-            id="createImage"
-            placeholder="Image URL"
-            required
-          /><br /><br />
-          <label for="createNumCopies">Number of Copies:</label>
-          <input
-            type="number"
-            id="createNumCopies"
-            placeholder="Number of Copies"
-            required
-          /><br /><br />
-          <label for="createCategories">Categories:</label>
-          <input
-            type="text"
-            id="createCategories"
-            placeholder="Categories"
-            required
-          /><br /><br />
-          <label for="createISBN">ISBN:</label>
-          <input
-            type="text"
-            id="createISBN"
-            placeholder="ISBN"
-            required
-          /><br /><br />
-          <button onclick="createBook()" id="createBookBtn">Create Book</button>
+      <div id="bookModalCreate" class="createModal">
+        <div id="createBookModal" class="create-modal">
+          <div id="modal-create-content" class="modal-create-content">
+            <span id="closecreateModal" class="close">&times;</span>
+            <h2>Create Book</h2>
+            <label for="createBookName">Book Name:</label>
+            <input
+              class="create-input"
+              type="text"
+              id="createBookName"
+              placeholder="Book Name"
+              required
+            /><br /><br />
+            <label for="createAuthorsName">Author's Name:</label>
+            <input
+              class="create-input"
+              type="text"
+              id="createAuthorsName"
+              placeholder="Author's Name"
+              required
+            /><br /><br />
+            <label for="createNumPages">Number of Pages:</label>
+            <input
+              class="create-input"
+              type="number"
+              id="createNumPages"
+              placeholder="Number of Pages"
+              required
+            /><br /><br />
+            <label for="createShortDescription" class="label-description"
+              >Short Description:</label
+            >
+            <textarea
+              style="width: 300px"
+              class="create-input"
+              id="createShortDescription"
+              placeholder="Short Description"
+              required
+            ></textarea
+            ><br /><br />
+            <label for="createImage">Image URL:</label>
+            <input
+              class="create-input"
+              type="text"
+              id="createImage"
+              placeholder="Image URL"
+              required
+            /><br /><br />
+            <label for="createNumCopies">Number of Copies:</label>
+            <input
+              class="create-input"
+              type="number"
+              id="createNumCopies"
+              placeholder="Number of Copies"
+              required
+            /><br /><br />
+            <label for="createCategories">Categories:</label>
+            <input
+              class="create-input"
+              type="text"
+              id="createCategories"
+              placeholder="Categories"
+              required
+            /><br /><br />
+            <label for="createISBN">ISBN:</label>
+            <input
+              class="create-input"
+              type="text"
+              id="createISBN"
+              placeholder="ISBN"
+              required
+            /><br /><br />
+            <button
+              class="createBookBtn"
+              onclick="createBook()"
+              id="createBookBtn"
+            >
+              Create Book
+            </button>
+          </div>
         </div>
       </div>
 
@@ -102,6 +123,7 @@
         </form>
       </div>
     </section>
+
     <section class="section-3" id="section-3">
       <div id="booksContainer" class="books-container"></div>
       <div id="bookModal" class="modal">
