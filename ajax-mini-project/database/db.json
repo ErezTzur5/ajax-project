@@ -1,21 +1,6 @@
 {
   "books": [
     {
-      "book_name": "Harry Potter and the Sorcerer's Stone",
-      "authors_name": [
-        "J.K. Rowling"
-      ],
-      "num_pages": 320,
-      "short_description": "The first book in the Harry Potter series, following the magical journey of a young wizard, Harry Potter.",
-      "image": "https://images-na.ssl-images-amazon.com/images/I/81YOuOGFCJL.jpg",
-      "num_copies": 10,
-      "categories": [
-        "Fantasy"
-      ],
-      "ISBN": "978-05903534278",
-      "id": "1"
-    },
-    {
       "id": "2",
       "book_name": "The Catcher in the Rye",
       "authors_name": [
@@ -901,6 +886,48 @@
       "id": "7c60",
       "operation": "PUT",
       "time": "2024-05-28T18:33:30.080Z",
+      "book_name": "Harry Potter and the Sorcerer's Stone"
+    },
+    {
+      "id": "f357",
+      "operation": "POST",
+      "time": "2024-05-29T06:23:29.602Z",
+      "book_name": "2"
+    },
+    {
+      "id": "8ba0",
+      "operation": "DELETE",
+      "time": "2024-05-29T06:23:37.452Z",
+      "book_name": "2"
+    },
+    {
+      "id": "66c3",
+      "operation": "PUT",
+      "time": "2024-05-29T06:23:52.253Z",
+      "book_name": "Harry Potter and the Sorcerer's Stone"
+    },
+    {
+      "id": "c8fc",
+      "operation": "POST",
+      "time": "2024-05-29T06:25:11.918Z",
+      "book_name": "2"
+    },
+    {
+      "id": "3ac3",
+      "operation": "DELETE",
+      "time": "2024-05-29T06:37:50.694Z",
+      "book_name": "Harry Potter and the Sorcerer's Stone"
+    },
+    {
+      "id": "a685",
+      "operation": "DELETE",
+      "time": "2024-05-29T06:37:50.695Z",
+      "book_name": "2"
+    },
+    {
+      "id": "a2cc",
+      "operation": "DELETE",
+      "time": "2024-05-29T06:37:50.698Z",
       "book_name": "Harry Potter and the Sorcerer's Stone"
     }
   ]

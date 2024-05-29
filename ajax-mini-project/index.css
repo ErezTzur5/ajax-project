@@ -158,8 +158,8 @@ body {
 
 .book-card:hover {
     transform: translateY(-5px);
-
     transition: transform 0.3s ease;
+    
 }
 
 
@@ -531,4 +531,92 @@ body {
 
 .history-p-bookname {
     font-weight: bolder;
+}
+
+
+
+@media only screen and (max-width: 1100px){
+    .books-container {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        width: 90%;
+    }
+    
+}
+
+@media only screen and (max-width: 950px){
+    .books-container {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        width: 90%;
+    }
+    .row {
+        display: flex;
+        align-items: center;
+        gap: 0rem;
+        flex-wrap: nowrap;
+    }
+    
+}
+
+@media only screen and (max-width: 845px){
+    .book-card {
+        margin-left: 2rem;
+    }
+    
+}
+
+@media only screen and (max-width: 682px){
+    .book-card {
+        margin-left: 2rem;
+    }
+    .row {
+        margin-left: 2rem;
+    }
+    img{
+        width: 120px;
+        aspect-ratio: auto 100 / 160;
+        height: 180px;
+    }
+
+    
+}
+
+@media only screen and (max-width: 612px){
+    img{
+        width: 100px;
+        aspect-ratio: auto 100 / 160;
+        height: 160px;
+    }
+}
+
+@media only screen and (max-width: 542px){
+    img{
+        width: 80px;
+        aspect-ratio: auto 100 / 140;
+        height: 140px;
+    }
+}
+
+
+@media only screen and (max-width: 480px){
+    .book-card {
+        margin-left: 1rem;
+    }
+    #searchBookName {
+        width: 200px;
+    }
+}
+
+@media only screen and (max-width: 380px){
+    img{
+        width: 60px;
+        aspect-ratio: auto 60 / 120;
+        height: 120px;
+    }
+    #searchBookName {
+        width: 150px;
+    }
 }

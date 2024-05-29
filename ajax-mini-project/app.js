@@ -1,7 +1,8 @@
 const baseURL = 'http://localhost:8001';
-
+let newBooks = []
 let pageNum = 1; // Start with page 1
 let bookPerPage = 12;
+let place = 0;
 let booksNumInPage;
 
 const booksContainer = document.querySelector('#booksContainer');
@@ -250,9 +251,10 @@ function fetchBooks(pageNum, filteredBooks) {
         .get(url)
         .then((response) => {
             if (filteredBooks) {
-                console.log("in if in fetch", filteredBooks);
-
-                displayBookImages(filteredBooks)
+                
+                booksNumInPage = filteredBooks[place].length;
+                displayBookImages(filteredBooks[place])
+                
                 hideLoader();
             }
             else {
@@ -265,8 +267,8 @@ function fetchBooks(pageNum, filteredBooks) {
 
         })
         .catch((err) => console.error(err), hideLoader());
-
 }
+
 
 function showLoader() {
     const loader = document.getElementById('loader');
@@ -284,7 +286,7 @@ function nextHandler() {
     console.log(searchInput.length);
     if (searchInput.length == 0) {
         if (bookPerPage === booksNumInPage) {
-            pageNum++; // Incremnt the page number
+            pageNum++;
             fetchBooks(pageNum);
         }
         else {
@@ -293,14 +295,17 @@ function nextHandler() {
     }
     else {
         if (bookPerPage === booksNumInPage) {
+
             pageNum++;
-            filterBooks(searchInput, pageNum)
+            place++;
+            fetchBooks(pageNum,newBooks)
 
         }
         else {
             console.log("not enough books");
         }
     }
+    console.log("page number: " + pageNum);
 }
 
 function prevHandler() {
@@ -318,7 +323,9 @@ function prevHandler() {
     else {
         if (pageNum > 1) {
             pageNum--;
-            filterBooks(searchInput, pageNum);
+            place--;
+            fetchBooks(pageNum,newBooks)
+
         }
         else {
             console.log("not enough books");
@@ -328,6 +335,7 @@ function prevHandler() {
 }
 
 async function search(event) {
+    pageNum = 1;
     event.preventDefault();
     const searchInput = document.getElementById('searchBookName').value.toLowerCase();
     if (searchInput.trim() === '') {
@@ -338,30 +346,46 @@ async function search(event) {
         });
         return;
     }
-    const newBooks = await filterBooks(searchInput);
+    newBooks = await filterBooks(searchInput);
+    console.log(newBooks);
+    
     fetchBooks(pageNum, newBooks);
+    
 
 }
 
-pageNum = 1;
 async function filterBooks(searchInput, pageNum) {
     const url = `${baseURL}/books?_page=${pageNum}&_per_page=${bookPerPage}`;
 
     try {
         const response = await axios.get(url);
-        console.log(url);
-
+    
         const allBooks = response.data; // Adjust this line to extract book data
-        console.log('ALL', allBooks);
-
+        
         const filteredBooks = allBooks.filter(book => book.book_name.toLowerCase().includes(searchInput));
+
         console.log('Filtered Books:', filteredBooks);
-        return filteredBooks;
+
+        const BooksPerSearch = chunkArray(filteredBooks, 12);
+        // console.log(BooksPerSearch[0]);
+        return BooksPerSearch;
+
     } catch (err) {
         console.error('Fetch error:', err);
         return [];
     }
 }
+
+
+//split the filtered books into an array that holds 12 books per sub-array
+function chunkArray(array, size) {
+    const result = [];
+    for (let i = 0; i < array.length; i += size) {
+        result.push(array.slice(i, i + size));
+    }
+    return result;
+}
+
 
 function deleteBook(bookId) {
     const url = `http://localhost:8001/books/${bookId}`;
@@ -457,6 +481,49 @@ async function saveToHistory(historyItem) {
     }
 }
 
+
+
+async function deleteFromFavorite(bookId) {
+    const url = `http://localhost:8001/favorite/${bookId}`;
+    axios.delete(url)
+        .then(response => {
+            console.log(response.data);
+        })
+        .catch(error => {
+            console.error(`There was an error deleting the book with ID ${bookId}:`, error);
+        });
+}
+
+async function addToFavorite(bookId) {
+    const url = `http://localhost:8001/books/${bookId}`;
+    axios.get(url)
+        .then(response => {
+            console.log(response.data);
+            const favorite_book = {
+                id: bookId,
+                bookName: response.data.book_name,
+                authorsName: response.data.authors_name,
+                numPages: response.data.num_pages,
+                shortDescription: response.data.short_description,
+                image: response.data.image,
+                numCopies: response.data.num_copies,
+                categories: response.data.categories,
+                ISBN: response.data.ISBN
+            };
+            saveToFavorite(favorite_book);
+        })
+        .catch(error => {
+            console.error(`There was an error updating the book with ID ${bookId}:`, error);
+        });
+}
+
+async function saveToFavorite(favorite_book) {
+    try {
+        axios.post('http://localhost:8001/favorite', favorite_book);
+    } catch (error) {
+        console.error('Error saving favorite item:', error.message);
+    }
+}
 
 
 window.onload = () => fetchBooks(pageNum);
