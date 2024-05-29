@@ -5,6 +5,7 @@ let bookPerPage = 12;
 let place = 0;
 let booksNumInPage;
 let favoriteData = [];
+let sortedBooks = []
 
 
 
@@ -37,7 +38,9 @@ const bookModalCreate = document.getElementById('bookModalCreate');
 // history
 const historyDiv = document.getElementById('historyDiv');
 
-
+//sort
+let sortFlag = false
+console.log(sortFlag);
 
 
 const displayBookImages = (books) => {
@@ -57,9 +60,9 @@ const displayBookImages = (books) => {
         // Create book card div
         const bookDiv = document.createElement('div');
         bookDiv.classList.add('book-card');
-        bookDiv.setAttribute('id','book-card');
-        
-        
+        bookDiv.setAttribute('id', 'book-card');
+
+
 
         // Create image element
         const img = document.createElement('img');
@@ -100,7 +103,7 @@ const displayBookImages = (books) => {
             unFavorite.classList.add('unfavorite-btn');
             unFavorite.addEventListener('click', (event) => {
                 favorite.style.display = 'inline-block';
-                unFavorite.style.display ='none';
+                unFavorite.style.display = 'none';
                 addToFavorite(book.id)
             });
             buttonsDiv.appendChild(unFavorite);
@@ -110,9 +113,9 @@ const displayBookImages = (books) => {
             favorite.classList.add('favorite-btn');
             favorite.addEventListener('click', (event) => {
                 favorite.style.display = 'none';
-                unFavorite.style.display ='inline-block';
+                unFavorite.style.display = 'inline-block';
                 deleteFromFavorite(book.id)
-                
+
 
             });
             buttonsDiv.appendChild(favorite);
@@ -186,12 +189,16 @@ function showFavorites() {
 }
 
 async function sortAZ() {
+    pageNum = 1
+    sortFlag = true
+    console.log(sortFlag);
     try {
         const response = await axios.get(`http://localhost:8001/books?_sort=book_name`);
-    
-        const sortedBooks = response.data; // Extract book data from the response
+
+        sortedBooks = response.data; // Extract book data from the response
         console.log('sorted books', sortedBooks);
-        fetchBooks(pageNum,sortedBooks,true);
+        let url = `http://localhost:8001/books?_page=${pageNum}&_per_page=${bookPerPage}&_sort=book_name`
+        fetchBooks(pageNum, sortedBooks, url);
 
         return sortedBooks;
 
@@ -207,7 +214,7 @@ closeModal.addEventListener('click', () => {
     bookModal.style.display = 'none';
     document.body.style.overflow = 'auto';
 
- 
+
 
 
     // Clear modal content
@@ -325,24 +332,23 @@ function createBook() {
         });
 }
 
-function fetchBooks(pageNum, filteredBooks,sort=false) {
+function fetchBooks(pageNum, filteredBooks, url = `${baseURL}/books?_page=${pageNum}&_per_page=${bookPerPage}`) {
+    const searchInput = document.getElementById('searchBookName').value.toLowerCase();
     showLoader();
 
-    let url = `${baseURL}/books?_page=${pageNum}&_per_page=${bookPerPage}`;
     axios
         .get(url)
         .then((response) => {
-
             //search paging
-            if (filteredBooks) {
+            if (!searchInput.length == 0) {
                 booksNumInPage = filteredBooks[place].length;
                 displayBookImages(filteredBooks[place])
-                
                 hideLoader();
+
             }
             else {
-                console.log('else');
                 const books = response.data;
+                console.log(books);
                 booksNumInPage = books.data.length;
                 displayBookImages(books.data);
             }
@@ -366,35 +372,54 @@ function hideLoader() {
 
 function nextHandler() {
     const searchInput = document.getElementById('searchBookName').value.toLowerCase();
-    console.log(searchInput.length);
-    if (searchInput.length == 0) {
+    if (sortFlag === true) {
         if (bookPerPage === booksNumInPage) {
             pageNum++;
-            fetchBooks(pageNum);
-        }
-        else {
+            let url = `http://localhost:8001/books?_page=${pageNum}&_per_page=${bookPerPage}&_sort=book_name`
+            fetchBooks(pageNum, sortedBooks, url);
+        } else {
             console.log("not enough books");
         }
     }
-    else {
-        if (bookPerPage === booksNumInPage) {
-
-            pageNum++;
-            place++;
-            fetchBooks(pageNum,newBooks)
-
+    else
+        if (searchInput.length == 0) {
+            if (bookPerPage === booksNumInPage) {
+                pageNum++;
+                fetchBooks(pageNum);
+            }
+            else {
+                console.log("not enough books");
+            }
         }
         else {
-            console.log("not enough books");
+            if (bookPerPage === booksNumInPage) {
+
+                pageNum++;
+                place++;
+                fetchBooks(pageNum, newBooks)
+
+            }
+            else {
+                console.log("not enough books");
+            }
         }
-    }
     console.log("page number: " + pageNum);
 }
 
 function prevHandler() {
     const searchInput = document.getElementById('searchBookName').value.toLowerCase();
     console.log(searchInput.length);
-    if (searchInput.length == 0) {
+    if (sortFlag === true) {
+        if (pageNum > 1) {
+            pageNum--;
+            let url = `http://localhost:8001/books?_page=${pageNum}&_per_page=${bookPerPage}&_sort=book_name`
+            fetchBooks(pageNum, sortedBooks, url);
+
+        } else {
+            console.log("not enough books");
+        }
+    }
+    else if (searchInput.length == 0) {
         if (pageNum > 1) {
             pageNum--;
             fetchBooks(pageNum);
@@ -407,7 +432,7 @@ function prevHandler() {
         if (pageNum > 1) {
             pageNum--;
             place--;
-            fetchBooks(pageNum,newBooks)
+            fetchBooks(pageNum, newBooks)
 
         }
         else {
@@ -431,9 +456,9 @@ async function search(event) {
     }
     newBooks = await filterBooks(searchInput);
     console.log(newBooks);
-    
+
     fetchBooks(pageNum, newBooks);
-    
+
 
 }
 
@@ -442,9 +467,9 @@ async function filterBooks(searchInput, pageNum) {
 
     try {
         const response = await axios.get(url);
-    
+
         const allBooks = response.data; // Adjust this line to extract book data
-        
+
         const filteredBooks = allBooks.filter(book => book.book_name.toLowerCase().includes(searchInput));
 
         console.log('Filtered Books:', filteredBooks);

@@ -16,7 +16,6 @@
       "ISBN": "978-0590353427"
     },
     {
-      "id": "2",
       "book_name": "The Catcher in the Rye",
       "authors_name": [
         "J.D. Salinger"
@@ -24,28 +23,12 @@
       "num_pages": 277,
       "short_description": "A novel narrated by a teenager, Holden Caulfield, who describes his experiences in New York City after being expelled from prep school.",
       "image": "https://npr.brightspotcdn.com/dims4/default/f735808/2147483647/strip/true/crop/363x574+0+0/resize/880x1392!/quality/90/?url=http%3A%2F%2Fnpr-brightspot.s3.amazonaws.com%2Flegacy%2Fsites%2Fwkar%2Ffiles%2Fcatcher_in_the_rye_cover.png",
-      "num_copies": 8,
+      "num_copies": 9,
       "categories": [
-        "Fiction",
-        "Classic"
+        "Fiction"
       ],
-      "ISBN": "978-0316769488"
-    },
-    {
-      "id": "3",
-      "book_name": "The Great Gatsby",
-      "authors_name": [
-        "F. Scott Fitzgerald"
-      ],
-      "num_pages": 180,
-      "short_description": "A novel set in the 1920s, following the life and times of millionaire Jay Gatsby and his neighbor Nick Carraway.",
-      "image": "https://images-na.ssl-images-amazon.com/images/I/71QKQ9mwV7L.jpg",
-      "num_copies": 6,
-      "categories": [
-        "Fiction",
-        "Classic"
-      ],
-      "ISBN": "978-0743273565"
+      "ISBN": "978-0316769488",
+      "id": "3"
     },
     {
       "id": "4",
@@ -739,23 +722,6 @@
       "ISBN": "978-0547928227"
     },
     {
-      "id": "46",
-      "book_name": "Wuthering Heights",
-      "authors_name": [
-        "Emily Brontë"
-      ],
-      "num_pages": 416,
-      "short_description": "A novel about the turbulent and passionate love between Heathcliff and Catherine Earnshaw.",
-      "image": "https://m.media-amazon.com/images/I/61Ap7QjGMjL._AC_UF1000,1000_QL80_.jpg",
-      "num_copies": 6,
-      "categories": [
-        "Fiction",
-        "Romance",
-        "Classic"
-      ],
-      "ISBN": "978-1505313109"
-    },
-    {
       "id": "47",
       "book_name": "Frankenstein",
       "authors_name": [
@@ -852,6 +818,538 @@
         "Horror"
       ],
       "ISBN": "978-0307743657"
+    },
+    {
+      "id": "53",
+      "book_name": "The Catcher in the Rye",
+      "authors_name": [
+        "J.D. Salinger"
+      ],
+      "num_pages": 277,
+      "short_description": "A story about the events surrounding Holden Caulfield's expulsion from Pencey Prep.",
+      "image": "https://images-na.ssl-images-amazon.com/images/I/81OthjkJBuL.jpg",
+      "num_copies": 5,
+      "categories": [
+        "Classic",
+        "Literature"
+      ],
+      "ISBN": "978-0316769488"
+    },
+    {
+      "id": "54",
+      "book_name": "East of Eden",
+      "authors_name": [
+        "John Steinbeck"
+      ],
+      "num_pages": 601,
+      "short_description": "A novel that follows the interwoven stories of two families over several generations.",
+      "image": "https://m.media-amazon.com/images/I/714iJhKi0QL._AC_UF1000,1000_QL80_.jpg",
+      "num_copies": 7,
+      "categories": [
+        "Classic",
+        "Literature"
+      ],
+      "ISBN": "978-0142000656"
+    },
+    {
+      "id": "55",
+      "book_name": "The Secret Life of Bees",
+      "authors_name": [
+        "Sue Monk Kidd"
+      ],
+      "num_pages": 336,
+      "short_description": "A coming-of-age novel about a young girl's search for truth and her mother's past.",
+      "image": "https://images-na.ssl-images-amazon.com/images/I/81WojUxbbFL.jpg",
+      "num_copies": 6,
+      "categories": [
+        "Fiction"
+      ],
+      "ISBN": "978-0142001745"
+    },
+    {
+      "id": "56",
+      "book_name": "The Art of Racing in the Rain",
+      "authors_name": [
+        "Garth Stein"
+      ],
+      "num_pages": 321,
+      "short_description": "A heart-wrenching but deeply funny and ultimately uplifting story of family, love, loyalty, and hope.",
+      "image": "https://upload.wikimedia.org/wikipedia/en/f/f0/The_Art_of_Racing_in_the_Rain.jpg",
+      "num_copies": 8,
+      "categories": [
+        "Fiction"
+      ],
+      "ISBN": "978-0061537967"
+    },
+    {
+      "id": "57",
+      "book_name": "The Guernsey Literary and Potato Peel Pie Society",
+      "authors_name": [
+        "Mary Ann Shaffer",
+        "Annie Barrows"
+      ],
+      "num_pages": 274,
+      "short_description": "A charming story of love, loss, and the magic of books.",
+      "image": "https://m.media-amazon.com/images/I/812D3cKUOHL._AC_UF1000,1000_QL80_.jpg",
+      "num_copies": 4,
+      "categories": [
+        "Historical Fiction"
+      ],
+      "ISBN": "978-0385341004"
+    },
+    {
+      "id": "58",
+      "book_name": "The Thirteenth Tale",
+      "authors_name": [
+        "Diane Setterfield"
+      ],
+      "num_pages": 406,
+      "short_description": "A mesmerizing gothic novel filled with dark family secrets and literary allusions.",
+      "image": "https://m.media-amazon.com/images/I/81TVVmmO85L._AC_UF1000,1000_QL80_.jpg",
+      "num_copies": 9,
+      "categories": [
+        "Mystery",
+        "Gothic Fiction"
+      ],
+      "ISBN": "978-0743298025"
+    },
+    {
+      "id": "59",
+      "book_name": "The Shadow of the Wind",
+      "authors_name": [
+        "Carlos Ruiz Zafón"
+      ],
+      "num_pages": 487,
+      "short_description": "A novel about a young boy's quest to discover the truth behind a mysterious book and its author.",
+      "image": "https://m.media-amazon.com/images/I/913DdP7RflL._AC_UF1000,1000_QL80_.jpg",
+      "num_copies": 5,
+      "categories": [
+        "Historical Fiction",
+        "Mystery"
+      ],
+      "ISBN": "978-0143034902"
+    },
+    {
+      "id": "60",
+      "book_name": "The Time Traveler's Wife",
+      "authors_name": [
+        "Audrey Niffenegger"
+      ],
+      "num_pages": 546,
+      "short_description": "A love story about a man with a rare genetic disorder that causes him to time travel unpredictably.",
+      "image": "https://m.media-amazon.com/images/M/MV5BZTllOTBkZWUtNjg4YS00NTU0LWFhMDMtYWNkMGU3ODBjZGQ2XkEyXkFqcGdeQXVyMTUyOTc1NDYz._V1_.jpg",
+      "num_copies": 3,
+      "categories": [
+        "Science Fiction",
+        "Romance"
+      ],
+      "ISBN": "978-0156029438"
+    },
+    {
+      "id": "61",
+      "book_name": "The Memory Keeper's Daughter",
+      "authors_name": [
+        "Kim Edwards"
+      ],
+      "num_pages": 401,
+      "short_description": "A novel about a doctor's decision to institutionalize his newborn daughter with Down syndrome and the impact of that choice.",
+      "image": "https://m.media-amazon.com/images/I/61WF5iAcokL._AC_UF894,1000_QL80_.jpg",
+      "num_copies": 6,
+      "categories": [
+        "Fiction"
+      ],
+      "ISBN": "978-0143037149"
+    },
+    {
+      "id": "62",
+      "book_name": "The Brief Wondrous Life of Oscar Wao",
+      "authors_name": [
+        "Junot Díaz"
+      ],
+      "num_pages": 339,
+      "short_description": "A tale of an overweight Dominican boy's quest for love and the curse that has plagued his family.",
+      "image": "https://m.media-amazon.com/images/I/61IHmbkc8mL._AC_UF1000,1000_QL80_.jpg",
+      "num_copies": 4,
+      "categories": [
+        "Fiction"
+      ],
+      "ISBN": "978-1594483295"
+    },
+    {
+      "id": "63",
+      "book_name": "The Immortalists",
+      "authors_name": [
+        "Chloe Benjamin"
+      ],
+      "num_pages": 346,
+      "short_description": "A novel about four siblings who, after visiting a psychic who predicts their death dates, find their lives changed forever.",
+      "image": "https://m.media-amazon.com/images/I/81B1Ro2jSEL._AC_UF1000,1000_QL80_.jpg",
+      "num_copies": 7,
+      "categories": [
+        "Fiction"
+      ],
+      "ISBN": "978-0735213180"
+    },
+    {
+      "id": "64",
+      "book_name": "The Underground Railroad",
+      "authors_name": [
+        "Colson Whitehead"
+      ],
+      "num_pages": 306,
+      "short_description": "A gripping tale about a young slave's desperate bid for freedom via a secret network of tracks and tunnels.",
+      "image": "https://m.media-amazon.com/images/I/91ikNi3cYUL._AC_UF1000,1000_QL80_.jpg",
+      "num_copies": 5,
+      "categories": [
+        "Historical Fiction"
+      ],
+      "ISBN": "978-0385542364"
+    },
+    {
+      "id": "65",
+      "book_name": "Circe",
+      "authors_name": [
+        "Madeline Miller"
+      ],
+      "num_pages": 393,
+      "short_description": "A retelling of the life of Circe, the enchantress from Homer's Odyssey, from her perspective.",
+      "image": "https://m.media-amazon.com/images/I/91r0y3YEfGL._AC_UF1000,1000_QL80_.jpg",
+      "num_copies": 8,
+      "categories": [
+        "Fantasy",
+        "Mythology"
+      ],
+      "ISBN": "978-0316556347"
+    },
+    {
+      "id": "66",
+      "book_name": "Little Fires Everywhere",
+      "authors_name": [
+        "Celeste Ng"
+      ],
+      "num_pages": 338,
+      "short_description": "A novel about the intertwined fates of the picture-perfect Richardson family and the enigmatic mother and daughter who upend their lives.",
+      "image": "https://m.media-amazon.com/images/M/MV5BZjNiMTQzMDYtNzk2ZC00ODc4LTk4OWQtZDBkMTllYWZlYzI1XkEyXkFqcGdeQXVyNDk3ODk4OQ@@._V1_.jpg",
+      "num_copies": 9,
+      "categories": [
+        "Fiction"
+      ],
+      "ISBN": "978-0735224315"
+    },
+    {
+      "id": "67",
+      "book_name": "The Night Watchman",
+      "authors_name": [
+        "Louise Erdrich"
+      ],
+      "num_pages": 464,
+      "short_description": "Based on the extraordinary life of Erdrich's grandfather, a Native American leader who fought against Native dispossession in the 1950s.",
+      "image": "https://m.media-amazon.com/images/I/81TgNEDInqS._AC_UF1000,1000_QL80_.jpg",
+      "num_copies": 6,
+      "categories": [
+        "Historical Fiction"
+      ],
+      "ISBN": "978-0062671189"
+    },
+    {
+      "id": "68",
+      "book_name": "Homegoing",
+      "authors_name": [
+        "Yaa Gyasi"
+      ],
+      "num_pages": 320,
+      "short_description": "A novel that traces the parallel paths of two half-sisters and their descendants across 300 years of Ghanaian and American history.",
+      "image": "https://m.media-amazon.com/images/I/81H1tStHREL._AC_UF1000,1000_QL80_.jpg",
+      "num_copies": 7,
+      "categories": [
+        "Historical Fiction"
+      ],
+      "ISBN": "978-1101971062"
+    },
+    {
+      "id": "69",
+      "book_name": "Pachinko",
+      "authors_name": [
+        "Min Jin Lee"
+      ],
+      "num_pages": 496,
+      "short_description": "A sweeping saga of an exceptional Korean family in exile from its homeland and caught in the indifferent arc of history.",
+      "image": "https://m.media-amazon.com/images/I/81Z-DV78CnL._AC_UF894,1000_QL80_.jpg",
+      "num_copies": 8,
+      "categories": [
+        "Historical Fiction"
+      ],
+      "ISBN": "978-1455563920"
+    },
+    {
+      "id": "70",
+      "book_name": "The Goldfinch",
+      "authors_name": [
+        "Donna Tartt"
+      ],
+      "num_pages": 784,
+      "short_description": "A novel about a boy who survives an explosion at a museum and is drawn into a world of art and wealth.",
+      "image": "https://upload.wikimedia.org/wikipedia/en/e/eb/The_goldfinch_by_donna_tart.png",
+      "num_copies": 4,
+      "categories": [
+        "Fiction"
+      ],
+      "ISBN": "978-0316055444"
+    },
+    {
+      "id": "71",
+      "book_name": "The Alice Network",
+      "authors_name": [
+        "Kate Quinn"
+      ],
+      "num_pages": 503,
+      "short_description": "A captivating novel about an unlikely friendship forged during two world wars.",
+      "image": "https://m.media-amazon.com/images/I/91RDFoiKRdL._AC_UF1000,1000_QL80_.jpg",
+      "num_copies": 5,
+      "categories": [
+        "Historical Fiction"
+      ],
+      "ISBN": "978-0062654199"
+    },
+    {
+      "id": "72",
+      "book_name": "Before We Were Yours",
+      "authors_name": [
+        "Lisa Wingate"
+      ],
+      "num_pages": 342,
+      "short_description": "A poignant novel about a family's hidden history and the lengths we go to protect those we love.",
+      "image": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1498910914i/32148570.jpg",
+      "num_copies": 6,
+      "categories": [
+        "Historical Fiction"
+      ],
+      "ISBN": "978-0425284681"
+    },
+    {
+      "id": "73",
+      "book_name": "The Light We Lost",
+      "authors_name": [
+        "Jill Santopolo"
+      ],
+      "num_pages": 336,
+      "short_description": "A moving novel about a woman at a crossroads, dealing with the most difficult choice of her life.",
+      "image": "https://m.media-amazon.com/images/I/71Fims5zxsL._AC_UF894,1000_QL80_.jpg",
+      "num_copies": 7,
+      "categories": [
+        "Romance"
+      ],
+      "ISBN": "978-0735212756"
+    },
+    {
+      "id": "74",
+      "book_name": "The Silent Patient",
+      "authors_name": [
+        "Alex Michaelides"
+      ],
+      "num_pages": 325,
+      "short_description": "A psychological thriller about a woman who shoots her husband and then never speaks again.",
+      "image": "https://m.media-amazon.com/images/I/81JJPDNlxSL._AC_UF894,1000_QL80_.jpg",
+      "num_copies": 8,
+      "categories": [
+        "Thriller"
+      ],
+      "ISBN": "978-1250301697"
+    },
+    {
+      "id": "75",
+      "book_name": "The Tattooist of Auschwitz",
+      "authors_name": [
+        "Heather Morris"
+      ],
+      "num_pages": 288,
+      "short_description": "A powerful story of love and survival set in the horrors of the Auschwitz concentration camp.",
+      "image": "https://sydneyjewishmuseum.com.au/wp-content/uploads/2024/04/TTOA_TV_CoverOnly.jpg",
+      "num_copies": 6,
+      "categories": [
+        "Historical Fiction"
+      ],
+      "ISBN": "978-0062797155"
+    },
+    {
+      "id": "76",
+      "book_name": "Daisy Jones & The Six",
+      "authors_name": [
+        "Taylor Jenkins Reid"
+      ],
+      "num_pages": 368,
+      "short_description": "An oral history of a fictional rock band that became famous in the 1970s.",
+      "image": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1580255154i/40597810.jpg",
+      "num_copies": 4,
+      "categories": [
+        "Fiction"
+      ],
+      "ISBN": "978-1524798628"
+    },
+    {
+      "id": "77",
+      "book_name": "The Water Dancer",
+      "authors_name": [
+        "Ta-Nehisi Coates"
+      ],
+      "num_pages": 416,
+      "short_description": "A dramatic story of an enslaved man with a mysterious power, on a journey toward freedom.",
+      "image": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1549993860i/43982054.jpg",
+      "num_copies": 7,
+      "categories": [
+        "Historical Fiction"
+      ],
+      "ISBN": "978-0399590597"
+    },
+    {
+      "id": "78",
+      "book_name": "The Nickel Boys",
+      "authors_name": [
+        "Colson Whitehead"
+      ],
+      "num_pages": 224,
+      "short_description": "A harrowing tale of two boys unjustly sentenced to a reform school in 1960s Florida.",
+      "image": "https://m.media-amazon.com/images/I/61Aay8nWB1L._AC_UF1000,1000_QL80_.jpg",
+      "num_copies": 5,
+      "categories": [
+        "Historical Fiction"
+      ],
+      "ISBN": "978-0385537070"
+    },
+    {
+      "id": "79",
+      "book_name": "The Vanishing Half",
+      "authors_name": [
+        "Brit Bennett"
+      ],
+      "num_pages": 352,
+      "short_description": "A powerful novel about twin sisters who choose to live in two very different worlds, one black and one white.",
+      "image": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1577090827l/51791252.jpg",
+      "num_copies": 6,
+      "categories": [
+        "Fiction"
+      ],
+      "ISBN": "978-0525536291"
+    },
+    {
+      "id": "80",
+      "book_name": "The Dutch House",
+      "authors_name": [
+        "Ann Patchett"
+      ],
+      "num_pages": 352,
+      "short_description": "A dark fairy tale about two siblings who cannot overcome their past or the house they grew up in.",
+      "image": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1552334367i/44318414.jpg",
+      "num_copies": 9,
+      "categories": [
+        "Fiction"
+      ],
+      "ISBN": "978-0062963673"
+    },
+    {
+      "id": "81",
+      "book_name": "The Giver of Stars",
+      "authors_name": [
+        "Jojo Moyes"
+      ],
+      "num_pages": 400,
+      "short_description": "A beautifully written novel about five women and their journey through the mountains of Kentucky.",
+      "image": "https://m.media-amazon.com/images/I/81dTP2N6mcL._AC_UF1000,1000_QL80_.jpg",
+      "num_copies": 8,
+      "categories": [
+        "Historical Fiction"
+      ],
+      "ISBN": "978-0399562488"
+    },
+    {
+      "id": "82",
+      "book_name": "The Huntress",
+      "authors_name": [
+        "Kate Quinn"
+      ],
+      "num_pages": 560,
+      "short_description": "A thrilling novel about a Nazi-hunting squad in post-war Europe.",
+      "image": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1669655519i/40245700.jpg",
+      "num_copies": 4,
+      "categories": [
+        "Historical Fiction"
+      ],
+      "ISBN": "978-0062740373"
+    },
+    {
+      "id": "83",
+      "book_name": "The Nightingale",
+      "authors_name": [
+        "Kristin Hannah"
+      ],
+      "num_pages": 564,
+      "short_description": "A story of two sisters in Nazi-occupied France and their struggle to survive and resist during World War II.",
+      "image": "https://m.media-amazon.com/images/I/81OkWjcf4WL._AC_UF1000,1000_QL80_.jpg",
+      "num_copies": 7,
+      "categories": [
+        "Historical Fiction"
+      ],
+      "ISBN": "978-1250080400"
+    },
+    {
+      "id": "84",
+      "book_name": "The Woman in the Window",
+      "authors_name": [
+        "A.J. Finn"
+      ],
+      "num_pages": 448,
+      "short_description": "A psychological thriller about an agoraphobic woman who believes she witnessed a crime in her neighbor's house.",
+      "image": "https://m.media-amazon.com/images/M/MV5BZWE3OWE4OTMtODcwMS00MzRlLWJiNWItMGY4ZWM5NjdmZDk1XkEyXkFqcGdeQXVyMDM2NDM2MQ@@._V1_.jpg",
+      "num_copies": 5,
+      "categories": [
+        "Thriller"
+      ],
+      "ISBN": "978-0062678416"
+    },
+    {
+      "id": "85",
+      "book_name": "The Orphan's Tale",
+      "authors_name": [
+        "Pam Jenoff"
+      ],
+      "num_pages": 368,
+      "short_description": "A powerful story of friendship and survival during World War II.",
+      "image": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1477339189i/29239940.jpg",
+      "num_copies": 6,
+      "categories": [
+        "Historical Fiction"
+      ],
+      "ISBN": "978-0778319818"
+    },
+    {
+      "id": "86",
+      "book_name": "The Outsider",
+      "authors_name": [
+        "Stephen King"
+      ],
+      "num_pages": 576,
+      "short_description": "A gripping novel about a seemingly straightforward investigation that spirals into a horrifying and complex case.",
+      "image": "https://upload.wikimedia.org/wikipedia/en/f/fa/Outsidersposter.jpeg",
+      "num_copies": 5,
+      "categories": [
+        "Thriller"
+      ],
+      "ISBN": "978-1501180989"
+    },
+    {
+      "id": "87",
+      "book_name": "The Great Alone",
+      "authors_name": [
+        "Kristin Hannah"
+      ],
+      "num_pages": 448,
+      "short_description": "A gripping story about a family in crisis in the untamed wilderness of Alaska.",
+      "image": "https://m.media-amazon.com/images/I/91lFMYj1XtL._AC_UF1000,1000_QL80_.jpg",
+      "num_copies": 7,
+      "categories": [
+        "Fiction"
+      ],
+      "ISBN": "978-0312577230"
     }
   ],
   "history": [
@@ -926,6 +1424,30 @@
       "operation": "POST",
       "time": "2024-05-29T06:25:11.918Z",
       "book_name": "2"
+    },
+    {
+      "id": "ee7a",
+      "operation": "PUT",
+      "time": "2024-05-29T18:24:51.517Z",
+      "book_name": "The Great Gatsby"
+    },
+    {
+      "id": "0ead",
+      "operation": "PUT",
+      "time": "2024-05-29T18:24:51.518Z",
+      "book_name": "The Catcher in the Rye"
+    },
+    {
+      "id": "0f71",
+      "operation": "DELETE",
+      "time": "2024-05-29T18:31:44.898Z",
+      "book_name": "The Catcher in the Rye"
+    },
+    {
+      "id": "cc56",
+      "operation": "DELETE",
+      "time": "2024-05-29T18:39:16.723Z",
+      "book_name": "Wuthering Heights"
     }
   ],
   "favorite": [
@@ -1023,6 +1545,39 @@
         "Classic"
       ],
       "ISBN": "978-0679723165"
+    },
+    {
+      "id": "43",
+      "bookName": "The Picture of Dorian Gray",
+      "authorsName": [
+        "Oscar Wilde"
+      ],
+      "numPages": 254,
+      "shortDescription": "A novel about a young man who sells his soul for eternal youth and beauty.",
+      "image": "https://m.media-amazon.com/images/I/51IPe62r8gL._AC_UF1000,1000_QL80_.jpg",
+      "numCopies": 4,
+      "categories": [
+        "Fiction",
+        "Philosophical",
+        "Classic"
+      ],
+      "ISBN": "978-0141439570"
+    },
+    {
+      "id": "3",
+      "bookName": "The Great Gatsby",
+      "authorsName": [
+        "F. Scott Fitzgerald"
+      ],
+      "numPages": 180,
+      "shortDescription": "A novel set in the 1920s, following the life and times of millionaire Jay Gatsby and his neighbor Nick Carraway.",
+      "image": "https://images-na.ssl-images-amazon.com/images/I/71QKQ9mwV7L.jpg",
+      "numCopies": 6,
+      "categories": [
+        "Fiction",
+        "Classic"
+      ],
+      "ISBN": "978-0743273565"
     }
   ]
 }
