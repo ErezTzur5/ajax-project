@@ -945,51 +945,6 @@
       "ISBN": "978-0590353427"
     },
     {
-      "id": "1",
-      "bookName": "Harry Potter and the Sorcerer's Stone",
-      "authorsName": [
-        "J.K. Rowling"
-      ],
-      "numPages": 320,
-      "shortDescription": "The first book in the Harry Potter series, following the magical journey of a young wizard, Harry Potter.",
-      "image": "https://images-na.ssl-images-amazon.com/images/I/81YOuOGFCJL.jpg",
-      "numCopies": 10,
-      "categories": [
-        "Fantasy"
-      ],
-      "ISBN": "978-0590353427"
-    },
-    {
-      "id": "1",
-      "bookName": "Harry Potter and the Sorcerer's Stone",
-      "authorsName": [
-        "J.K. Rowling"
-      ],
-      "numPages": 320,
-      "shortDescription": "The first book in the Harry Potter series, following the magical journey of a young wizard, Harry Potter.",
-      "image": "https://images-na.ssl-images-amazon.com/images/I/81YOuOGFCJL.jpg",
-      "numCopies": 10,
-      "categories": [
-        "Fantasy"
-      ],
-      "ISBN": "978-0590353427"
-    },
-    {
-      "id": "1",
-      "bookName": "Harry Potter and the Sorcerer's Stone",
-      "authorsName": [
-        "J.K. Rowling"
-      ],
-      "numPages": 320,
-      "shortDescription": "The first book in the Harry Potter series, following the magical journey of a young wizard, Harry Potter.",
-      "image": "https://images-na.ssl-images-amazon.com/images/I/81YOuOGFCJL.jpg",
-      "numCopies": 10,
-      "categories": [
-        "Fantasy"
-      ],
-      "ISBN": "978-0590353427"
-    },
-    {
       "id": "2",
       "bookName": "The Catcher in the Rye",
       "authorsName": [
@@ -1004,6 +959,70 @@
         "Classic"
       ],
       "ISBN": "978-0316769488"
+    },
+    {
+      "id": "11",
+      "bookName": "Brave New World",
+      "authorsName": [
+        "Aldous Huxley"
+      ],
+      "numPages": 268,
+      "shortDescription": "A dystopian novel set in a future world where the government controls every aspect of life.",
+      "image": "https://m.media-amazon.com/images/I/81zE42gT3xL._AC_UF1000,1000_QL80_.jpg",
+      "numCopies": 5,
+      "categories": [
+        "Fiction",
+        "Dystopian"
+      ],
+      "ISBN": "978-0060850524"
+    },
+    {
+      "id": "9",
+      "bookName": "The Alchemist",
+      "authorsName": [
+        "Paulo Coelho"
+      ],
+      "numPages": 197,
+      "shortDescription": "A novel about a young Andalusian shepherd named Santiago who travels from Spain to Egypt in search of a treasure.",
+      "image": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1654371463i/18144590.jpg",
+      "numCopies": 6,
+      "categories": [
+        "Fiction",
+        "Philosophical"
+      ],
+      "ISBN": "978-0061122415"
+    },
+    {
+      "id": "31",
+      "bookName": "Catch-22",
+      "authorsName": [
+        "Joseph Heller"
+      ],
+      "numPages": 453,
+      "shortDescription": "A satirical novel about the absurdities of war, focusing on the experiences of a group of American bomber pilots during World War II.",
+      "image": "https://m.media-amazon.com/images/I/71Ym0vDDWsL._AC_UF1000,1000_QL80_.jpg",
+      "numCopies": 5,
+      "categories": [
+        "Fiction",
+        "Satire"
+      ],
+      "ISBN": "978-1451626650"
+    },
+    {
+      "id": "33",
+      "bookName": "Lolita",
+      "authorsName": [
+        "Vladimir Nabokov"
+      ],
+      "numPages": 336,
+      "shortDescription": "A novel that tells the story of a middle-aged man who becomes infatuated with a twelve-year-old girl.",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Lolita_1955.JPG/640px-Lolita_1955.JPG",
+      "numCopies": 4,
+      "categories": [
+        "Fiction",
+        "Classic"
+      ],
+      "ISBN": "978-0679723165"
     }
   ]
 }

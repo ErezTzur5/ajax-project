@@ -105,7 +105,14 @@
 
       <div>
         <form class="search-book" id="search-book">
+          <button
+            onclick="sortAZ(event)"
+            class="sorter-by-az"
+            id="sorter-by-az"
+            type="submit"
+          ></button>
           <button id="createBook" class="post-logo" type="submit"></button>
+
           <div>
             <label for="searchBookName"></label>
 
@@ -118,6 +125,15 @@
             />
           </div>
           <button onclick="search(event)" class="search-logo" type="submit">
+            Search
+          </button>
+
+          <button
+            onclick="showFavorites(event)"
+            class="favorite-btn-mainpage"
+            id="favorite-btn-mainpage"
+            type="submit"
+          >
             Search
           </button>
         </form>
@@ -137,10 +153,7 @@
           <p id="modalCopysNum"></p>
           <p id="modalCategory"></p>
           <p id="modalISBN"></p>
-          <div id="buttons">
-            <button id="favorite"></button>
-            <button id="unfavorite"></button>
-          </div>
+          <div id="buttons"></div>
         </div>
         <div id="updateBookModal" class="update-modal">
           <div class="modal-content-update">

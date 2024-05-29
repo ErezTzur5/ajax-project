@@ -4,6 +4,8 @@ let pageNum = 1; // Start with page 1
 let bookPerPage = 12;
 let place = 0;
 let booksNumInPage;
+let favoriteData = [];
+
 
 
 const booksContainer = document.querySelector('#booksContainer');
@@ -100,9 +102,6 @@ const displayBookImages = (books) => {
                 favorite.style.display = 'inline-block';
                 unFavorite.style.display ='none';
                 addToFavorite(book.id)
-                
-
-
             });
             buttonsDiv.appendChild(unFavorite);
 
@@ -118,7 +117,17 @@ const displayBookImages = (books) => {
             });
             buttonsDiv.appendChild(favorite);
 
-            
+            getFavorite(favoriteData => {
+                favoriteData.forEach(favoriteBook => {
+                    console.log(favoriteBook);
+                    if (favoriteBook.id === book.id) {
+                        favorite.style.display = 'inline-block';
+                        unFavorite.style.display = 'none';
+                    }
+
+                });
+            });
+
             //delete
             deleteButton.classList.add('delete-btn');
             deleteButton.textContent = 'Delete';
@@ -167,10 +176,30 @@ const displayBookImages = (books) => {
 const favoriteBtn = document.getElementById('favorite');
 const unFavoriteBtn = document.getElementById('unfavorite');
 
+//main show fav
+const favoriteMainButtom = document.getElementById('favorite-btn-mainpage');
+function showFavorites() {
+    getFavorite(favoriteData => {
+        displayBookImages(favoriteData)
+    });
 
+}
 
+async function sortAZ() {
+    try {
+        const response = await axios.get(`http://localhost:8001/books?_sort=book_name`);
+    
+        const sortedBooks = response.data; // Extract book data from the response
+        console.log('sorted books', sortedBooks);
+        fetchBooks(pageNum,sortedBooks,true);
 
+        return sortedBooks;
 
+    } catch (err) {
+        console.error('Fetch error:', err);
+        return [];
+    }
+}
 
 // event listener for closing the book popup and reset 
 closeModal.addEventListener('click', () => {
@@ -296,15 +325,16 @@ function createBook() {
         });
 }
 
-function fetchBooks(pageNum, filteredBooks) {
+function fetchBooks(pageNum, filteredBooks,sort=false) {
     showLoader();
 
     let url = `${baseURL}/books?_page=${pageNum}&_per_page=${bookPerPage}`;
     axios
         .get(url)
         .then((response) => {
+
+            //search paging
             if (filteredBooks) {
-                
                 booksNumInPage = filteredBooks[place].length;
                 displayBookImages(filteredBooks[place])
                 
@@ -577,6 +607,23 @@ async function saveToFavorite(favorite_book) {
         console.error('Error saving favorite item:', error.message);
     }
 }
+
+
+
+
+function getFavorite(callback) {
+    const url = `http://localhost:8001/favorite`;
+    axios.get(url)
+        .then(response => {
+            const favoriteData = response.data;
+            callback(favoriteData);
+        })
+        .catch(error => {
+            console.error('Error fetching favorite data:', error);
+        });
+}
+
+
 
 
 window.onload = () => fetchBooks(pageNum);
