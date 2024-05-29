@@ -5,6 +5,7 @@ let bookPerPage = 12;
 let place = 0;
 let booksNumInPage;
 
+
 const booksContainer = document.querySelector('#booksContainer');
 
 const bookModal = document.getElementById('bookModal');
@@ -34,6 +35,9 @@ const bookModalCreate = document.getElementById('bookModalCreate');
 // history
 const historyDiv = document.getElementById('historyDiv');
 
+
+
+
 const displayBookImages = (books) => {
     // Clear existing content
     booksContainer.innerHTML = '';
@@ -51,6 +55,9 @@ const displayBookImages = (books) => {
         // Create book card div
         const bookDiv = document.createElement('div');
         bookDiv.classList.add('book-card');
+        bookDiv.setAttribute('id','book-card');
+        
+        
 
         // Create image element
         const img = document.createElement('img');
@@ -80,8 +87,38 @@ const displayBookImages = (books) => {
             // Display the modal
             bookModal.style.display = 'block';
             document.body.style.overflow = 'hidden';
-            // catching the buttons div
+            // catching the buttons div 
+            console.log(book.id);
+            // creation of favotire buttons
+            const favorite = document.createElement('button');
+            const unFavorite = document.createElement('button');
 
+
+            //unFavorite
+            unFavorite.classList.add('unfavorite-btn');
+            unFavorite.addEventListener('click', (event) => {
+                favorite.style.display = 'inline-block';
+                unFavorite.style.display ='none';
+                addToFavorite(book.id)
+                
+
+
+            });
+            buttonsDiv.appendChild(unFavorite);
+
+
+            //favorite
+            favorite.classList.add('favorite-btn');
+            favorite.addEventListener('click', (event) => {
+                favorite.style.display = 'none';
+                unFavorite.style.display ='inline-block';
+                deleteFromFavorite(book.id)
+                
+
+            });
+            buttonsDiv.appendChild(favorite);
+
+            
             //delete
             deleteButton.classList.add('delete-btn');
             deleteButton.textContent = 'Delete';
@@ -122,11 +159,27 @@ const displayBookImages = (books) => {
     });
 };
 
+
+// event listener for opening book card
+// favotire
+
+
+const favoriteBtn = document.getElementById('favorite');
+const unFavoriteBtn = document.getElementById('unfavorite');
+
+
+
+
+
+
 // event listener for closing the book popup and reset 
 closeModal.addEventListener('click', () => {
     // Hide the modal
     bookModal.style.display = 'none';
     document.body.style.overflow = 'auto';
+
+ 
+
 
     // Clear modal content
     modalTitle.textContent = '';

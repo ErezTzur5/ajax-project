@@ -533,6 +533,42 @@ body {
     font-weight: bolder;
 }
 
+.favorite-btn{
+    display: none;
+    width: 2rem;
+    height: 2rem;
+    background-image: url(./img/favoriteadd.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: none;
+    padding: 0;
+    background-color: transparent;
+    cursor: pointer;
+    outline: none;
+    text-indent: -9999px;
+    margin-top: 2rem;
+}
+
+.unfavorite-btn{
+    display: inline-block;
+    width: 2rem;
+    height: 2rem;
+
+    background-image: url(./img/favoritedelete.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: none;
+    padding: 0;
+    background-color: transparent;
+    cursor: pointer;
+    outline: none;
+    text-indent: -9999px;
+    margin-top: 2rem;
+}
+
+
 
 
 @media only screen and (max-width: 1100px){

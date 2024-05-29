@@ -1,126 +1,215 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css"
+    />
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    <link rel="stylesheet" type="text/css" href="./index.css" />
+    <title>Bookris</title>
+  </head>
 
-  <link rel="stylesheet" type="text/css" href="./index.css" />
-  <title>Bookris</title>
-</head>
+  <body>
+    <div id="loader" class="loader"></div>
 
-<body>
-  <div id="loader" class="loader"></div>
+    <section class="section-1" id="section-1">
+      <div class="navbar">
+        <a href="./index.html">
+          <img class="logo-homepage" alt="Logo" />
+        </a>
+        <a href="./history.html">
+          <img class="logo-history" alt="Logo" />
+        </a>
+      </div>
+    </section>
 
-  <section class="section-1" id="section-1">
-    <div class="navbar">
-      <a href="./index.html">
-        <img class="logo-homepage" alt="Logo" />
-      </a>
-      <a href="./history.html">
-        <img class="logo-history" alt="Logo" />
-      </a>
-    </div>
-  </section>
+    <section class="section-2" id="section-2">
+      <!-- creation of book -->
+      <div id="bookModalCreate" class="createModal">
+        <div id="createBookModal" class="create-modal">
+          <div id="modal-create-content" class="modal-create-content">
+            <span id="closecreateModal" class="close">&times;</span>
+            <h2>Create Book</h2>
+            <label for="createBookName">Book Name:</label>
+            <input
+              class="create-input"
+              type="text"
+              id="createBookName"
+              placeholder="Book Name"
+            /><br /><br />
+            <label for="createAuthorsName">Author's Name:</label>
+            <input
+              class="create-input"
+              type="text"
+              id="createAuthorsName"
+              placeholder="Author's Name"
+            /><br /><br />
+            <label for="createNumPages">Number of Pages:</label>
+            <input
+              class="create-input"
+              type="number"
+              id="createNumPages"
+              placeholder="Number of Pages"
+            /><br /><br />
+            <label for="createShortDescription" class="label-description"
+              >Short Description:</label
+            >
+            <textarea
+              style="width: 300px"
+              class="create-input"
+              id="createShortDescription"
+              placeholder="Short Description"
+            ></textarea
+            ><br /><br />
+            <label for="createImage">Image URL:</label>
+            <input
+              class="create-input"
+              type="text"
+              id="createImage"
+              placeholder="Image URL"
+            /><br /><br />
+            <label for="createNumCopies">Number of Copies:</label>
+            <input
+              class="create-input"
+              type="number"
+              id="createNumCopies"
+              placeholder="Number of Copies"
+            /><br /><br />
+            <label for="createCategories">Categories:</label>
+            <input
+              class="create-input"
+              type="text"
+              id="createCategories"
+              placeholder="Categories"
+            /><br /><br />
+            <label for="createISBN">ISBN:</label>
+            <input
+              class="create-input"
+              type="text"
+              id="createISBN"
+              placeholder="ISBN"
+            /><br /><br />
+            <button
+              class="createBookBtn"
+              onclick="createBook()"
+              id="createBookBtn"
+            >
+              Create Book
+            </button>
+          </div>
+        </div>
+      </div>
 
-  <section class="section-2" id="section-2">
-    <!-- creation of book -->
-    <div id="bookModalCreate" class="createModal">
-      <div id="createBookModal" class="create-modal">
-        <div id="modal-create-content" class="modal-create-content">
-          <span id="closecreateModal" class="close">&times;</span>
-          <h2>Create Book</h2>
-          <label for="createBookName">Book Name:</label>
-          <input class="create-input" type="text" id="createBookName" placeholder="Book Name" /><br /><br />
-          <label for="createAuthorsName">Author's Name:</label>
-          <input class="create-input" type="text" id="createAuthorsName" placeholder="Author's Name" /><br /><br />
-          <label for="createNumPages">Number of Pages:</label>
-          <input class="create-input" type="number" id="createNumPages" placeholder="Number of Pages" /><br /><br />
-          <label for="createShortDescription" class="label-description">Short Description:</label>
-          <textarea style="width: 300px" class="create-input" id="createShortDescription"
-            placeholder="Short Description"></textarea><br /><br />
-          <label for="createImage">Image URL:</label>
-          <input class="create-input" type="text" id="createImage" placeholder="Image URL" /><br /><br />
-          <label for="createNumCopies">Number of Copies:</label>
-          <input class="create-input" type="number" id="createNumCopies" placeholder="Number of Copies" /><br /><br />
-          <label for="createCategories">Categories:</label>
-          <input class="create-input" type="text" id="createCategories" placeholder="Categories" /><br /><br />
-          <label for="createISBN">ISBN:</label>
-          <input class="create-input" type="text" id="createISBN" placeholder="ISBN" /><br /><br />
-          <button class="createBookBtn" onclick="createBook()" id="createBookBtn">
-            Create Book
+      <div>
+        <form class="search-book" id="search-book">
+          <button id="createBook" class="post-logo" type="submit"></button>
+          <div>
+            <label for="searchBookName"></label>
+
+            <input
+              type="text"
+              id="searchBookName"
+              placeholder="Search For book"
+              onkeydown="if(event.keyCode==13) search(event);"
+              required
+            />
+          </div>
+          <button onclick="search(event)" class="search-logo" type="submit">
+            Search
           </button>
+        </form>
+      </div>
+    </section>
+
+    <section class="section-3" id="section-3">
+      <div id="booksContainer" class="books-container"></div>
+      <div id="bookModal" class="modal">
+        <div class="modal-content">
+          <span id="closeModal" class="close">&times;</span>
+          <h2 id="modalTitle"></h2>
+          <img id="modalImage" class="modalImage" src="" alt="" />
+          <p id="modalDescription"></p>
+          <p id="modalAuthor"></p>
+          <p id="modalPageNum"></p>
+          <p id="modalCopysNum"></p>
+          <p id="modalCategory"></p>
+          <p id="modalISBN"></p>
+          <div id="buttons">
+            <button id="favorite"></button>
+            <button id="unfavorite"></button>
+          </div>
+        </div>
+        <div id="updateBookModal" class="update-modal">
+          <div class="modal-content-update">
+            <span id="closeUpdateModal" class="close">&times;</span>
+            <h2 style="margin: 0.2rem">Update Book</h2>
+
+            <label for="updateBookName">Book Name:</label>
+            <input
+              type="text"
+              id="updateBookName"
+              placeholder="Book Name"
+              required
+            />
+            <label for="updateAuthorsName">Author's Name:</label>
+            <input
+              type="text"
+              id="updateAuthorsName"
+              placeholder="Author's Name"
+              required
+            />
+            <label for="updateNumPages">Number of Pages:</label>
+            <input
+              type="number"
+              id="updateNumPages"
+              placeholder="Number of Pages"
+              required
+            />
+            <label for="updateShortDescription">Short Description:</label>
+            <textarea
+              id="updateShortDescription"
+              placeholder="Short Description"
+              required
+            ></textarea>
+            <label for="updateImage">Image URL:</label>
+            <input
+              type="text"
+              id="updateImage"
+              placeholder="Image URL"
+              required
+            />
+            <label for="updateNumCopies">Number of Copies:</label>
+            <input
+              type="number"
+              id="updateNumCopies"
+              placeholder="Number of Copies"
+              required
+            />
+            <label for="updateCategories">Categories:</label>
+            <input
+              type="text"
+              id="updateCategories"
+              placeholder="Categories"
+              required
+            />
+            <label for="updateISBN">ISBN:</label>
+            <input type="text" id="updateISBN" placeholder="ISBN" required />
+            <button onclick="updateBook()" id="updateBookBtn">
+              Update Book
+            </button>
+          </div>
         </div>
       </div>
+    </section>
+    <div class="paging">
+      <button class="prev-logo" onclick="prevHandler()">Previous</button>
+      <button class="next-logo" onclick="nextHandler()">Next</button>
     </div>
-
-    <div>
-      <form class="search-book" id="search-book">
-        <button id="createBook" class="post-logo" type="submit"></button>
-        <div>
-          <label for="searchBookName"></label>
-
-          <input type="text" id="searchBookName" placeholder="Search For book"
-            onkeydown="if(event.keyCode==13) search(event);" required />
-        </div>
-        <button onclick="search(event)" class="search-logo" type="submit">
-          Search
-        </button>
-      </form>
-    </div>
-  </section>
-
-  <section class="section-3" id="section-3">
-    <div id="booksContainer" class="books-container"></div>
-    <div id="bookModal" class="modal">
-      <div class="modal-content">
-        <span id="closeModal" class="close">&times;</span>
-        <h2 id="modalTitle"></h2>
-        <img id="modalImage" class="modalImage" src="" alt="" />
-        <p id="modalDescription"></p>
-        <p id="modalAuthor"></p>
-        <p id="modalPageNum"></p>
-        <p id="modalCopysNum"></p>
-        <p id="modalCategory"></p>
-        <p id="modalISBN"></p>
-        <div id="buttons"></div>
-      </div>
-      <div id="updateBookModal" class="update-modal">
-        <div class="modal-content-update">
-          <span id="closeUpdateModal" class="close">&times;</span>
-          <h2 style="margin: 0.2rem;">Update Book</h2>
-
-          <label for="updateBookName">Book Name:</label>
-          <input type="text" id="updateBookName" placeholder="Book Name" required />
-          <label for="updateAuthorsName">Author's Name:</label>
-          <input type="text" id="updateAuthorsName" placeholder="Author's Name" required />
-          <label for="updateNumPages">Number of Pages:</label>
-          <input type="number" id="updateNumPages" placeholder="Number of Pages" required />
-          <label for="updateShortDescription">Short Description:</label>
-          <textarea id="updateShortDescription" placeholder="Short Description" required></textarea>
-          <label for="updateImage">Image URL:</label>
-          <input type="text" id="updateImage" placeholder="Image URL" required />
-          <label for="updateNumCopies">Number of Copies:</label>
-          <input type="number" id="updateNumCopies" placeholder="Number of Copies" required />
-          <label for="updateCategories">Categories:</label>
-          <input type="text" id="updateCategories" placeholder="Categories" required />
-          <label for="updateISBN">ISBN:</label>
-          <input type="text" id="updateISBN" placeholder="ISBN" required />
-          <button onclick="updateBook()" id="updateBookBtn">
-            Update Book
-          </button>
-        </div>
-      </div>
-    </div>
-  </section>
-  <div class="paging">
-    <button class="prev-logo" onclick="prevHandler()">Previous</button>
-    <button class="next-logo" onclick="nextHandler()">Next</button>
-  </div>
-  <script src="https://unpkg.com/axios@0.21.1/dist/axios.min.js"></script>
-  <script src="app.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
-</body>
-
+    <script src="https://unpkg.com/axios@0.21.1/dist/axios.min.js"></script>
+    <script src="app.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
+  </body>
 </html>
