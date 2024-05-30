@@ -1,21 +1,6 @@
 {
   "books": [
     {
-      "id": "1",
-      "book_name": "Harry Potter and the Sorcerer's Stone",
-      "authors_name": [
-        "J.K. Rowling"
-      ],
-      "num_pages": 320,
-      "short_description": "The first book in the Harry Potter series, following the magical journey of a young wizard, Harry Potter.",
-      "image": "https://images-na.ssl-images-amazon.com/images/I/81YOuOGFCJL.jpg",
-      "num_copies": 10,
-      "categories": [
-        "Fantasy"
-      ],
-      "ISBN": "978-0590353427"
-    },
-    {
       "book_name": "The Catcher in the Rye",
       "authors_name": [
         "J.D. Salinger"
@@ -64,22 +49,6 @@
       "ISBN": "978-0345339683"
     },
     {
-      "id": "6",
-      "book_name": "The Lord of the Rings",
-      "authors_name": [
-        "J.R.R. Tolkien"
-      ],
-      "num_pages": 1178,
-      "short_description": "A epic high-fantasy novel set in the fictional world of Middle-earth, following the quest to destroy the One Ring.",
-      "image": "https://resizing.flixster.com/KZ4cHfk_DxoUCFkFFF1wfdxLvIY=/fit-in/705x460/v2/https://resizing.flixster.com/-XZAfHZM39UwaGJIFWKAE8fS0ak=/v3/t/assets/p28828_p_v8_ao.jpg",
-      "num_copies": 4,
-      "categories": [
-        "Fantasy",
-        "Adventure"
-      ],
-      "ISBN": "978-0544003415"
-    },
-    {
       "id": "7",
       "book_name": "To Kill a Mockingbird",
       "authors_name": [
@@ -94,22 +63,6 @@
         "Classic"
       ],
       "ISBN": "978-0061120084"
-    },
-    {
-      "id": "8",
-      "book_name": "1984",
-      "authors_name": [
-        "George Orwell"
-      ],
-      "num_pages": 328,
-      "short_description": "A dystopian novel set in a totalitarian regime, where freedom of thought is suppressed.",
-      "image": "https://m.media-amazon.com/images/I/612ADI+BVlL._AC_UF1000,1000_QL80_.jpg",
-      "num_copies": 10,
-      "categories": [
-        "Fiction",
-        "Dystopian"
-      ],
-      "ISBN": "978-0451524935"
     },
     {
       "id": "9",
@@ -1396,61 +1349,65 @@
       "book_name": "Harry Potter and the Sorcerer's Stone"
     },
     {
-      "id": "7c60",
+      "id": "47f4",
       "operation": "PUT",
-      "time": "2024-05-28T18:33:30.080Z",
+      "time": "2024-05-30T06:44:10.399Z",
       "book_name": "Harry Potter and the Sorcerer's Stone"
     },
     {
-      "id": "f357",
+      "id": "b1f2",
       "operation": "POST",
-      "time": "2024-05-29T06:23:29.602Z",
-      "book_name": "2"
+      "time": "2024-05-30T06:45:06.927Z",
+      "book_name": "my story"
     },
     {
-      "id": "8ba0",
+      "id": "41ff",
       "operation": "DELETE",
-      "time": "2024-05-29T06:23:37.452Z",
-      "book_name": "2"
+      "time": "2024-05-30T06:46:39.931Z",
+      "book_name": "my story"
     },
     {
-      "id": "66c3",
-      "operation": "PUT",
-      "time": "2024-05-29T06:23:52.253Z",
+      "id": "56c1",
+      "operation": "DELETE",
+      "time": "2024-05-30T06:52:34.002Z",
+      "book_name": "The Lord of the Rings"
+    },
+    {
+      "id": "44f6",
+      "operation": "DELETE",
+      "time": "2024-05-30T06:52:34.005Z",
+      "book_name": "1984"
+    },
+    {
+      "id": "00c1",
+      "operation": "DELETE",
+      "time": "2024-05-30T06:52:34.007Z",
+      "book_name": "1984"
+    },
+    {
+      "id": "76a3",
+      "operation": "DELETE",
+      "time": "2024-05-30T06:52:42.129Z",
       "book_name": "Harry Potter and the Sorcerer's Stone"
-    },
-    {
-      "id": "c8fc",
-      "operation": "POST",
-      "time": "2024-05-29T06:25:11.918Z",
-      "book_name": "2"
-    },
-    {
-      "id": "ee7a",
-      "operation": "PUT",
-      "time": "2024-05-29T18:24:51.517Z",
-      "book_name": "The Great Gatsby"
-    },
-    {
-      "id": "0ead",
-      "operation": "PUT",
-      "time": "2024-05-29T18:24:51.518Z",
-      "book_name": "The Catcher in the Rye"
-    },
-    {
-      "id": "0f71",
-      "operation": "DELETE",
-      "time": "2024-05-29T18:31:44.898Z",
-      "book_name": "The Catcher in the Rye"
-    },
-    {
-      "id": "cc56",
-      "operation": "DELETE",
-      "time": "2024-05-29T18:39:16.723Z",
-      "book_name": "Wuthering Heights"
     }
   ],
   "favorite": [
+    {
+      "id": "6",
+      "bookName": "The Lord of the Rings",
+      "authorsName": [
+        "J.R.R. Tolkien"
+      ],
+      "numPages": 1178,
+      "shortDescription": "A epic high-fantasy novel set in the fictional world of Middle-earth, following the quest to destroy the One Ring.",
+      "image": "https://resizing.flixster.com/KZ4cHfk_DxoUCFkFFF1wfdxLvIY=/fit-in/705x460/v2/https://resizing.flixster.com/-XZAfHZM39UwaGJIFWKAE8fS0ak=/v3/t/assets/p28828_p_v8_ao.jpg",
+      "numCopies": 4,
+      "categories": [
+        "Fantasy",
+        "Adventure"
+      ],
+      "ISBN": "978-0544003415"
+    },
     {
       "id": "1",
       "bookName": "Harry Potter and the Sorcerer's Stone",
@@ -1465,119 +1422,6 @@
         "Fantasy"
       ],
       "ISBN": "978-0590353427"
-    },
-    {
-      "id": "2",
-      "bookName": "The Catcher in the Rye",
-      "authorsName": [
-        "J.D. Salinger"
-      ],
-      "numPages": 277,
-      "shortDescription": "A novel narrated by a teenager, Holden Caulfield, who describes his experiences in New York City after being expelled from prep school.",
-      "image": "https://npr.brightspotcdn.com/dims4/default/f735808/2147483647/strip/true/crop/363x574+0+0/resize/880x1392!/quality/90/?url=http%3A%2F%2Fnpr-brightspot.s3.amazonaws.com%2Flegacy%2Fsites%2Fwkar%2Ffiles%2Fcatcher_in_the_rye_cover.png",
-      "numCopies": 8,
-      "categories": [
-        "Fiction",
-        "Classic"
-      ],
-      "ISBN": "978-0316769488"
-    },
-    {
-      "id": "11",
-      "bookName": "Brave New World",
-      "authorsName": [
-        "Aldous Huxley"
-      ],
-      "numPages": 268,
-      "shortDescription": "A dystopian novel set in a future world where the government controls every aspect of life.",
-      "image": "https://m.media-amazon.com/images/I/81zE42gT3xL._AC_UF1000,1000_QL80_.jpg",
-      "numCopies": 5,
-      "categories": [
-        "Fiction",
-        "Dystopian"
-      ],
-      "ISBN": "978-0060850524"
-    },
-    {
-      "id": "9",
-      "bookName": "The Alchemist",
-      "authorsName": [
-        "Paulo Coelho"
-      ],
-      "numPages": 197,
-      "shortDescription": "A novel about a young Andalusian shepherd named Santiago who travels from Spain to Egypt in search of a treasure.",
-      "image": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1654371463i/18144590.jpg",
-      "numCopies": 6,
-      "categories": [
-        "Fiction",
-        "Philosophical"
-      ],
-      "ISBN": "978-0061122415"
-    },
-    {
-      "id": "31",
-      "bookName": "Catch-22",
-      "authorsName": [
-        "Joseph Heller"
-      ],
-      "numPages": 453,
-      "shortDescription": "A satirical novel about the absurdities of war, focusing on the experiences of a group of American bomber pilots during World War II.",
-      "image": "https://m.media-amazon.com/images/I/71Ym0vDDWsL._AC_UF1000,1000_QL80_.jpg",
-      "numCopies": 5,
-      "categories": [
-        "Fiction",
-        "Satire"
-      ],
-      "ISBN": "978-1451626650"
-    },
-    {
-      "id": "33",
-      "bookName": "Lolita",
-      "authorsName": [
-        "Vladimir Nabokov"
-      ],
-      "numPages": 336,
-      "shortDescription": "A novel that tells the story of a middle-aged man who becomes infatuated with a twelve-year-old girl.",
-      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Lolita_1955.JPG/640px-Lolita_1955.JPG",
-      "numCopies": 4,
-      "categories": [
-        "Fiction",
-        "Classic"
-      ],
-      "ISBN": "978-0679723165"
-    },
-    {
-      "id": "43",
-      "bookName": "The Picture of Dorian Gray",
-      "authorsName": [
-        "Oscar Wilde"
-      ],
-      "numPages": 254,
-      "shortDescription": "A novel about a young man who sells his soul for eternal youth and beauty.",
-      "image": "https://m.media-amazon.com/images/I/51IPe62r8gL._AC_UF1000,1000_QL80_.jpg",
-      "numCopies": 4,
-      "categories": [
-        "Fiction",
-        "Philosophical",
-        "Classic"
-      ],
-      "ISBN": "978-0141439570"
-    },
-    {
-      "id": "3",
-      "bookName": "The Great Gatsby",
-      "authorsName": [
-        "F. Scott Fitzgerald"
-      ],
-      "numPages": 180,
-      "shortDescription": "A novel set in the 1920s, following the life and times of millionaire Jay Gatsby and his neighbor Nick Carraway.",
-      "image": "https://images-na.ssl-images-amazon.com/images/I/71QKQ9mwV7L.jpg",
-      "numCopies": 6,
-      "categories": [
-        "Fiction",
-        "Classic"
-      ],
-      "ISBN": "978-0743273565"
     }
   ]
 }

@@ -187,7 +187,6 @@ function showFavorites() {
     });
 
 }
-
 async function sortAZ() {
     pageNum = 1
     sortFlag = true
@@ -207,7 +206,6 @@ async function sortAZ() {
         return [];
     }
 }
-
 // event listener for closing the book popup and reset 
 closeModal.addEventListener('click', () => {
     // Hide the modal
@@ -358,13 +356,11 @@ function fetchBooks(pageNum, filteredBooks, url = `${baseURL}/books?_page=${page
         .catch((err) => console.error(err), hideLoader());
 }
 
-
 function showLoader() {
     const loader = document.getElementById('loader');
     loader.style.display = 'block';
 }
 
-// Hide loader function
 function hideLoader() {
     const loader = document.getElementById('loader');
     loader.style.display = 'none';
@@ -483,8 +479,6 @@ async function filterBooks(searchInput, pageNum) {
         return [];
     }
 }
-
-
 //split the filtered books into an array that holds 12 books per sub-array
 function chunkArray(array, size) {
     const result = [];
@@ -493,7 +487,6 @@ function chunkArray(array, size) {
     }
     return result;
 }
-
 
 function deleteBook(bookId) {
     const url = `http://localhost:8001/books/${bookId}`;
@@ -580,7 +573,6 @@ async function addToHistory(oper, book_name) {
         showLoader('Error adding history item');
     }
 }
-
 async function saveToHistory(historyItem) {
     try {
         await axios.post('http://localhost:8001/history', historyItem);
@@ -588,9 +580,6 @@ async function saveToHistory(historyItem) {
         showLoader('Error saving history item: ' + error.message);
     }
 }
-
-
-
 async function deleteFromFavorite(bookId) {
     const url = `http://localhost:8001/favorite/${bookId}`;
     axios.delete(url)
@@ -633,9 +622,6 @@ async function saveToFavorite(favorite_book) {
     }
 }
 
-
-
-
 function getFavorite(callback) {
     const url = `http://localhost:8001/favorite`;
     axios.get(url)
@@ -647,8 +633,4 @@ function getFavorite(callback) {
             console.error('Error fetching favorite data:', error);
         });
 }
-
-
-
-
 window.onload = () => fetchBooks(pageNum);
